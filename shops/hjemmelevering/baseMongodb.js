@@ -414,6 +414,7 @@ class BaseProductDatabase {
       delete doc.targetGBB
       delete doc.targetOrganic
       delete doc.targetHealthClaim
+      delete doc.customerShelfLife
 
       if (this.isFalse(doc?.bulky)) {
         delete doc.bulky
@@ -433,26 +434,14 @@ class BaseProductDatabase {
       if (this.isFalse(doc?.salesPrice)) {
         delete doc.salesPrice
       }
-      if (this.isFalse(doc?.bulky)) {
-        delete doc.bulky
-      }
       if (this.isFalse(doc?.comparePrice)) {
         delete doc.comparePrice
       }
-      if (this.isFalse(doc?.comparePrice)) {
-        delete doc.comparePrice
+      if (this.isFalse(doc?.normalPrice)) {
+        delete doc.normalPrice
       }
-      if (this.isFalse(doc?.comparePrice)) {
-        delete doc.comparePrice
-      }
-      if (this.isFalse(doc?.comparePrice)) {
-        delete doc.comparePrice
-      }
-      if (this.isFalse(doc?.comparePrice)) {
-        delete doc.comparePrice
-      }
-      if (this.isFalse(doc?.comparePrice)) {
-        delete doc.comparePrice
+      if (this.isFalse(doc?.salesUnit)) {
+        delete doc.salesUnit
       }
 
       if (doc?.ATS) {
@@ -474,8 +463,17 @@ class BaseProductDatabase {
           doc.packageSize = doc?.ATS?.packageSize
           delete doc.ATS.packageSize
         }
-
       }
+
+      if (doc?.objectID && !doc?.id) {
+        doc.id = doc.objectID
+        delete doc.objectID
+      }
+      if (doc?.targetBrand && !doc?.brand) {
+        doc.brand = doc.targetBrand
+        delete doc.targetBrand
+      }
+
 
       if (doc?.outAssortmentDate && (doc?.outAssortmentDate === "99991231" || doc?.outAssortmentDate === 99991231)) {
         delete doc.outAssortmentDate
@@ -489,11 +487,29 @@ class BaseProductDatabase {
         delete doc.objectID
       }
 
-      if (doc?.objectID && !doc?.id) {
-        doc.id = doc.objectID
-        delete doc.objectID
+      if (doc?.comparePrice && doc?.compareNormalPrice && doc?.comparePrice === doc?.compareNormalPrice) {
+        delete doc.compareNormalPrice
       }
 
+      if (doc?.normalPrice && doc?.sortPrice && doc?.normalPrice === doc?.sortPrice) {
+        delete doc.sortPrice
+      }
+
+      if (doc?.salesPrice && doc?.sortPrice && doc?.salesPrice === doc?.sortPrice) {
+        delete doc.sortPrice
+      }
+
+      if (doc?.salesUoM && doc?.compareUoM && doc?.salesUoM === doc?.compareUoM) {
+        delete doc.compareUoM
+      }
+
+      if (doc?.productType && doc?.targetProductType && doc?.productType === doc?.targetProductType) {
+        delete doc.targetProductType
+      }
+
+      if (doc?.name && doc?.productType && doc?.name === doc?.productType) {
+        delete doc.productType
+      }
 
 
       let prod = doc;
