@@ -6,13 +6,15 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "node app/index.js"
+    "start": "node app/index.js",
+    "merge-compatible": "node app/mergeCompatible.js",
+    "test": "node --test"
   },
   "dependencies": {
     "bson": "^7.2.0",
     "fast-clean": "^1.5.3",
     "mongodb": "^7.2.0",
-    "node-object-hash": "^3.1.1",
+    "node-object-hash": "3.1.1",
     "sort-keys-recursive": "^2.1.10"
   },
   "repository": {

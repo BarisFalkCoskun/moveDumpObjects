@@ -128,6 +128,31 @@ class BaseProductDatabase {
     return this.hashSortCoerce.hash(copy);
   }
 
+  static normalizeCategoryAmpersands(value) {
+    if (typeof value === "string") {
+      return value.replace(/\s+&\s+/g, " og ");
+    }
+
+    if (Array.isArray(value)) {
+      return value.map((item) => this.normalizeCategoryAmpersands(item));
+    }
+
+    if (
+      value !== null &&
+      typeof value === "object" &&
+      Object.getPrototypeOf(value) === Object.prototype
+    ) {
+      return Object.fromEntries(
+        Object.entries(value).map(([key, item]) => [
+          key,
+          this.normalizeCategoryAmpersands(item),
+        ]),
+      );
+    }
+
+    return value;
+  }
+
   static normalizeString(input) {
     return (
       input
@@ -516,6 +541,19 @@ class BaseProductDatabase {
 
       if (doc?.name && doc?.productType && doc?.name === doc?.productType) {
         delete doc.productType
+      }
+
+      if (doc?.salesUoM && doc?.productUoM && doc?.salesUoM === doc?.productUoM) {
+        delete doc.productUoM
+      }
+
+      if (doc?.productUoM && !doc?.salesUoM) {
+        doc.salesUoM = doc.productUoM
+        delete doc.productUoM
+      }
+
+      if (doc?.categories) {
+        doc.categories = this.normalizeCategoryAmpersands(doc.categories);
       }
 
       let prod = doc;

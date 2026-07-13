@@ -20,6 +20,7 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
   }
 
   let query = {};
+  // query = { concatenateSalesUnit: { $exists: true } }
   // query = { productImages: { $exists: true } }
   // query = { barcodes: { $exists: false } }
   // query = {
