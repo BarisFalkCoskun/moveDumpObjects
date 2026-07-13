@@ -7,12 +7,7 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
   let ProductDatabase = useRawMongo ? RawProductDatabase : NormalProductDatabase;
   let sortByNewestFirst = true;
   let collNames = [
-    'productsTest2',
-    'productsTest3',
     'products',
-    'productsTest',
-    'productsInvalid',
-    'test'
   ]
 
   let dbOutputName;

@@ -123,16 +123,7 @@ class BaseProductDatabase {
     delete copy._id;
     delete copy.hash;
     delete copy.normalizeProcessed;
-    // delete copy.campaignStop;
-    // delete copy.campaignStart
-    // delete copy.outAssortmentDate
-    // delete copy.inAssortmentDate
-    // delete copy.last_syncronized
-    // delete copy.productImages
-    // delete copy.isOnOffer
-    // delete copy.customerShelfLife
-    // delete copy.epoch_updated_at;
-    // delete copy.originalHash;
+
 
     return this.hashSortCoerce.hash(copy);
   }
@@ -487,6 +478,22 @@ class BaseProductDatabase {
         delete doc.objectID
       }
 
+      if (doc?.articleID && doc?.id && `${doc.articleID}-CA1` === doc.id) {
+        delete doc.articleID
+      }
+
+      if (doc?.articleID && doc?.id && `${doc.articleID}-CA2` === doc.id) {
+        delete doc.articleID
+      }
+
+      if (doc?.articleID && doc?.id && `${doc.articleID}-CA3` === doc.id) {
+        delete doc.articleID
+      }
+
+      if (doc?.articleID && doc?.id && `${doc.articleID}-EA` === doc.id) {
+        delete doc.articleID
+      }
+
       if (doc?.comparePrice && doc?.compareNormalPrice && doc?.comparePrice === doc?.compareNormalPrice) {
         delete doc.compareNormalPrice
       }
@@ -511,10 +518,7 @@ class BaseProductDatabase {
         delete doc.productType
       }
 
-
       let prod = doc;
-      
-      // prod["hash"] = await this.getHashValueOfObject(prod);
       prod = this.parseStringifiedJSON(prod);
       prod = this.normalizeWhitespace(prod);
       prod = await cleaner.clean(prod, this.cleanerOptions);
@@ -522,27 +526,6 @@ class BaseProductDatabase {
 
 
       prod["hash"] = await this.getHashValueOfObject(prod);
-
-      // if (!this.isImagesCollection) {
-      //   const result = await this.getHashValueOfObject(prod);
-      //   prod["hash"] = result;
-      // }
-
-
-      // if (productImages !== undefined) {
-      //   if (this.isImagesCollection) {
-      //     prod["productImages"] = productImages;
-      //   } else {
-      //     prod["productImages"] = productImages.flat();
-      //   }
-      // }
-      // if (hashedUrl !== undefined) {
-      //   prod["hashedUrl"] = hashedUrl;
-      // }
-      // if (hashedName !== undefined) {
-      //   prod["hashedName"] = hashedName;
-      // }
-
       objects.push(prod);
     }
 
