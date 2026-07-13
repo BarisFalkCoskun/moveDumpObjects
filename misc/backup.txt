@@ -1,0 +1,2153 @@
+        case "spar":
+        case "dagrofa":
+        case "meny":
+        case "minkobmand":
+          delete element.id;
+          delete element.assortmentNumber;
+          delete element.categoryId;
+          delete element.forSale;
+          delete element.adverr;
+          delete element.skyId;
+          delete element.discountMaxty;
+          delete element.isTobprice;
+          delete element.assortmentNumbeount;
+          delete element.ageRestribacco;
+          delete element.discounroduct;
+          delete element.summMaxQuantity;
+          delete element.hnt;
+          delete element.pickingRouteNumber;
+          delete element.sumId;
+          delete element.cageRestricted;
+
+          if (element?.discountPrice === 0) {
+            delete element["discountPrice"];
+          }
+          if (element?.discountAmount === 0) {
+            delete element["discountAmount"];
+          }
+          if (element?.discountMaxQuantity === 0) {
+            delete element["discountMaxQuantity"];
+          }
+          if (element?.alcoholContent === 0) {
+            delete element["alcoholContent"];
+          }
+          if (element?.advertisementProduct === false) {
+            delete element["advertisementProduct"];
+          }
+          if (element?.isTobacco === false) {
+            delete element["isTobacco"];
+          }
+          if (element?.ageRestricted === false) {
+            delete element["ageRestricted"];
+          }
+          if (element?.summary === "  / ") {
+            delete element["summary"];
+          }
+          if (element?.productStockLimit === 0) {
+            delete element["productStockLimit"];
+          }
+          if (element?.isproductDisplayName) {
+            element["productDisplayName"] = element["isproductDisplayName"];
+            delete element["isproductDisplayName"];
+          }
+          if (element?.productDisplayproductDisplayName) {
+            element["productDisplayName"] =
+              element["productDisplayproductDisplayName"];
+            delete element["productDisplayproductDisplayName"];
+          }
+          if (element?.dprice) {
+            element["discountPrice"] = element["dprice"];
+            delete element["dprice"];
+          }
+          if (element?.discountAhighResImg) {
+            element["highResImg"] = element["discountAhighResImg"];
+            delete element["discountAhighResImg"];
+          }
+          if (element?.categorhighResImg) {
+            element["highResImg"] = element["categorhighResImg"];
+            delete element["categorhighResImg"];
+          }
+          if (element?.agmedResImg) {
+            element["medResImg"] = element["agmedResImg"];
+            delete element["agmedResImg"];
+          }
+          if (element?.Amount === 0) {
+            delete element["Amount"];
+          }
+          if (element?.discountAmou) {
+            element["discountAmount"] = element["discountAmou"];
+            delete element["discountAmou"];
+          }
+          if (element?.is) {
+            element["productDisplayName"] = element["is"];
+            delete element["is"];
+          }
+          break;
+        case "rema1000":
+          delete element.formValue;
+          delete element.referer;
+          delete element.modified_at;
+          delete element.sorting;
+          delete element.department_id;
+          delete element.assortment_code;
+          delete element.have_image;
+          delete element.created_at;
+          delete element.category_id;
+          delete element._highlightResult;
+          delete element.entering_date;
+          if (element?.gpsr) {
+            delete element.gpsr.name;
+            delete element.gpsr.street;
+            delete element.gpsr.postal_code;
+            delete element.gpsr.city;
+            delete element.gpsr.country_code;
+            delete element.gpsr.state_code;
+            delete element.gpsr.website;
+            delete element.gpsr.email;
+            if (element.gpsr?.security_alert) {
+              element["security_alert"] = element.gpsr.security_alert;
+              delete element.gpsr.security_alert;
+            }
+            if (Object.keys(element.gpsr).length === 0) {
+              delete element.gpsr;
+            }
+          }
+          if (element["barcodes"]) {
+            element["bar_codes"] = element["barcodes"];
+            delete element["barcodes"];
+          }
+          if (element["id"] && element["objectID"] === undefined) {
+            element["objectID"] = element["id"];
+          }
+          if (element["objectID"] && element["id"] === undefined) {
+            element["id"] = element["objectID"];
+          }
+          if (element["page_id"]) {
+            element["id"] = element["page_id"];
+            element["objectID"] = element["page_id"];
+            delete element["page_id"];
+          }
+          if (element?.price_over_max === 0) {
+            delete element.price_over_max;
+          }
+          if (element?.max_quantity === 0) {
+            delete element.max_quantity;
+          }
+          if (element?.is_on_discount === 0) {
+            delete element.is_on_discount;
+          }
+          if (element?.environmental_hazard === 0) {
+            delete element.environmental_hazard;
+          }
+          if (element?.explosive === 0) {
+            delete element.explosive;
+          }
+          if (element?.flammable === 0) {
+            delete element.flammable;
+          }
+          if (element?.harmful === 0) {
+            delete element.harmful;
+          }
+          if (element?.health_hazard === 0) {
+            delete element.health_hazard;
+          }
+          if (element?.oxidizing === 0) {
+            delete element.oxidizing;
+          }
+          if (element?.toxic === 0) {
+            delete element.toxic;
+          }
+          if (element?.compressed_gas === 0) {
+            delete element.compressed_gas;
+          }
+          if (element?.corrosive === 0) {
+            delete element.corrosive;
+          }
+          if (element?.is_self_scale_item === 0) {
+            delete element.is_self_scale_item;
+          }
+          if (element?.is_on_discount === 1) {
+            element.is_on_discount = true;
+          }
+          if (element?.is_weight_item === 0) {
+            delete element.is_weight_item;
+          }
+          if (element?.pricing) {
+            if (element?.pricing?.max_quantity === 0) {
+              delete element.pricing.max_quantity;
+            }
+            if (element?.pricing?.price_over_max === 0) {
+              delete element.pricing.price_over_max;
+            }
+            if (element?.pricing?.is_on_discount === false) {
+              delete element.pricing.is_on_discount;
+            }
+            if (element?.pricing?.is_advertised === false) {
+              delete element.pricing.is_advertised;
+            }
+            if (element?.pricing?.deposit === 0) {
+              delete element.pricing.deposit;
+            }
+          }
+          if (element?.have_image === false) {
+            delete element.have_image;
+          }
+          if (element?.is_weight_item === false) {
+            delete element.is_weight_item;
+          }
+          if (element?.median_weight === 0) {
+            delete element.median_weight;
+          }
+          if (element?.is_self_scale_item === false) {
+            delete element.is_self_scale_item;
+          }
+          if (element?.have_image === false) {
+            delete element.have_image;
+          }
+          break;
+        case "salling":
+        case "bilkatogo":
+        case "foetexplus":
+        case "netto":
+        case "bilka":
+        case "foetex":
+        case "br":
+        case "fillop":
+        case "koeboghent":
+          if (this.collName === "netto") {
+            element = this.cleanNettoObject(element);
+          }
+          break;
+        case "beepr":
+          delete element.lastmod;
+          delete element.Mapped;
+          delete element.UT;
+          delete element["hierarchicalCategories.lvl0"];
+          delete element["hierarchicalCategories.lvl1"];
+          delete element["hierarchicalCategories.lvl2"];
+          delete element["hierarchicalCategories.lvl3"];
+          delete element["hierarchicalCategories.lvl4"];
+
+          if (element?.AlcoholPercentage === 0) {
+            delete element.AlcoholPercentage;
+          }
+          if (element?.IsWine === false) {
+            delete element.IsWine;
+          }
+          if (element?.IsFood === false) {
+            delete element.IsFood;
+          }
+          if (element?.offer === false) {
+            delete element.offer;
+          }
+          if (element?.Status === "done") {
+            delete element.Status;
+          }
+          if (element?.LowestPrice === 0) {
+            delete element?.LowestPrice;
+          }
+          if (element?.ImageURL === "products/empty.png") {
+            delete element?.ImageURL;
+          }
+          if (element?.pant === false) {
+            delete element.pant;
+          }
+          if (element?.swan_label === false) {
+            delete element.swan_label;
+          }
+          if (element?.keyhole_label === false) {
+            delete element.keyhole_label;
+          }
+          break;
+        case "nemlig":
+          delete element.TemplateName;
+          if (
+            element?.Declarations &&
+            element?.Declarations?.ShowDeclarations
+          ) {
+            delete element.Declarations.ShowDeclarations;
+          }
+          if (element?.DiscountSavings === 0) {
+            delete element.DiscountSavings;
+          }
+          if (element?.DiscountItem === false) {
+            delete element.DiscountItem;
+          }
+          if (element?.Campaign) {
+            if (element?.Campaign?.MaxQuantity === 0) {
+              delete element.Campaign.MaxQuantity;
+            }
+            if (element?.Campaign?.VariousPriceProductsCampaign) {
+              delete element.Campaign.VariousPriceProductsCampaign;
+            }
+            if (element?.Campaign?.Code) {
+              delete element.Campaign.Code;
+            }
+            if (element?.Campaign?.ShowCampaignInterval) {
+              delete element.Campaign.ShowCampaignInterval;
+            }
+          }
+          break;
+        case "flyingtiger":
+          delete element.available;
+          delete element.tag;
+          delete element.klevu_category;
+          delete element.created_at;
+          delete element.handle;
+          delete element.published_at;
+          delete element.published_scope;
+          delete element.updated_at;
+          delete element.requires_selling_plan;
+
+          if (element?.compare_at_price_min === 0) {
+            delete element.compare_at_price_min;
+          }
+          if (element?.compare_at_price_max === 0) {
+            delete element.compare_at_price_max;
+          }
+          if (element?.compare_at_price_varies === false) {
+            delete element.compare_at_price_varies;
+          }
+          if (element?.totalVariants === 0) {
+            delete element.totalVariants;
+          }
+          if (element?.discount === 0) {
+            delete element.discount;
+          }
+          if (element?.label === "LBL_NEW_IN") {
+            delete element.label;
+          }
+          if (element?.Label === "LBL_NEW_IN") {
+            delete element.Label;
+          }
+          if (element?.image) {
+            delete element.image.created_at;
+            delete element.image.updated_at;
+          }
+          if (element?.images && Array.isArray(element.images)) {
+            element.images.forEach((imgObj: any) => {
+              delete imgObj.created_at;
+              delete imgObj.updated_at;
+            });
+          }
+          if (element?.variants && Array.isArray(element.variants)) {
+            element.variants.forEach((variant: any) => {
+              delete variant.fulfillment_service;
+              delete variant.inventory_management;
+              delete variant.created_at;
+              delete variant.updated_at;
+              delete variant.tax_code;
+              delete variant.taxable;
+              delete variant.requires_shipping;
+            });
+          }
+
+          break;
+        case "hjemmelevering":
+          delete element.lateArrival;
+          delete element.promoSplashStyle;
+          delete element.promoType;
+          delete element.counterATS;
+          delete element.categoriesPIM;
+          delete element.categoriesURL;
+          delete element.nameURL;
+          delete element.nameSEO;
+          delete element.productNotificationType;
+          delete element.productNotificationSubHeader;
+          delete element.productNotification;
+          delete element.targetGBB;
+          delete element.hasVideo;
+          delete element.hasImage;
+          delete element.isOnOffer;
+
+          if (element?.salesPrice === 0) {
+            delete element.salesPrice;
+          }
+          if (element?.maxPromoQty === 0) {
+            delete element.maxPromoQty;
+          }
+          if (element?.plusDeposit === false) {
+            delete element.plusDeposit;
+          }
+          if (element?.bulky === false) {
+            delete element.bulky;
+          }
+          if (element?.isOnOffer === false) {
+            delete element.isOnOffer;
+          }
+          if (element?.comparePrice === 0) {
+            delete element.comparePrice;
+          }
+          if (element?.compareNormalPrice === 0) {
+            delete element.compareNormalPrice;
+          }
+          break;
+        case "coop":
+        case "irma":
+          delete element.splash;
+          delete element.available;
+          delete element.onlyPurchaseableFromProductDetailsPage;
+          delete element.isAvailableToAddInLimitedDeliveryPeriod;
+          delete element.isInAssortment;
+          delete element.isFavorited;
+          delete element.productType;
+          delete element.updated;
+          delete element.outsideDeliveryPeriodMessage;
+
+          if (element?.isWine === false) {
+            delete element.isWine;
+          }
+          if (element?.showAgeRequirement === false) {
+            delete element.showAgeRequirement;
+          }
+          if (element?.hasOffer === false) {
+            delete element.hasOffer;
+          }
+          if (element?.alcoholPercentage === 0) {
+            delete element.alcoholPercentage;
+          }
+          if (element?.maxQuantity === 999) {
+            delete element.maxQuantity;
+          }
+          break;
+        case "elgiganten":
+          delete element.sellability;
+          delete element.score;
+          delete element.tracking;
+          delete element.rating;
+          delete element.campaignId;
+          delete element.pt;
+          delete element.cgm;
+          delete element.paymentPlan;
+          if (element?.isOutletProduct === false) {
+            delete element.isOutletProduct;
+          }
+          if (element?.hasGamingBenchmarks === false) {
+            delete element.hasGamingBenchmarks;
+          }
+          if (element?.hasLevelScores === false) {
+            delete element.hasLevelScores;
+          }
+          break;
+        case "haraldnyborg":
+          delete element.shoppingTermsAndConditionsUrl;
+          delete element.deliveryConditionsUrl;
+          delete element.shoppingTermsAndConditionsUrl;
+
+          if (element?.hasDeposit === false) {
+            delete element.hasDeposit;
+          }
+
+          if (element?.selectedVariant) {
+            delete element.selectedVariant.deliveryTime;
+            delete element.selectedVariant.financialProposal;
+            delete element.selectedVariant.showInStockSubscription;
+            delete element.selectedVariant.deliveryOnlyToMainlandByBridge;
+            delete element.selectedVariant.showAddToBasket;
+
+            if (element?.selectedVariant?.stock) {
+              delete element.selectedVariant.stock.webshopStockColor;
+              delete element.selectedVariant.stock.webshopStockText;
+              delete element.selectedVariant.stock.shopStockColor;
+              delete element.selectedVariant.stock.shopStockText;
+              delete element.selectedVariant.stock.latestStockUpdate;
+              delete element.selectedVariant.stock.haveSpecialReturnConditions;
+              delete element.selectedVariant.stock.showConditionsLink;
+              delete element.selectedVariant.stock.showPhysicalShopsLink;
+              delete element.selectedVariant.stock.showFreightAddedLink;
+              delete element.selectedVariant.stock.showFindShopLink;
+              delete element.selectedVariant.stock.hasFreeFreight;
+              delete element.selectedVariant.stock.quickBuy;
+            }
+            if (
+              element?.selectedVariant?.priceInfo &&
+              element?.selectedVariant?.priceInfo?.onsale === false
+            ) {
+              delete element.selectedVariant.priceInfo.onsale;
+            }
+          }
+          break;
+        case "sostrenegrene":
+          delete element.displayIcon;
+          delete element.onlineOnly;
+          delete element.shippingLabel;
+          delete element.shippingRules;
+          delete element.onlineOnly;
+
+          if (element?.tracking) {
+            delete element.tracking.categoryIds;
+            delete element.tracking.shortDescriptionLength;
+            delete element.tracking.descriptionLength;
+          }
+          if (element?.pimId === 0) {
+            delete element.pimId;
+          }
+          if (element?.news === false) {
+            delete element.news;
+          }
+          if (element.availability?.status === 0) {
+            delete element.availability.status;
+            if (Object.keys(element.availability).length === 0) {
+              delete element.availability;
+            }
+          }
+          if (element.variants && Array.isArray(element.variants)) {
+            element.variants = element.variants.map((variant: any) => {
+              if (
+                variant.availability &&
+                variant.availability.status !== undefined
+              ) {
+                delete variant.availability.status;
+                if (Object.keys(variant.availability).length === 0) {
+                  delete variant.availability;
+                }
+              }
+              if (variant.inventory) {
+                delete variant.inventory.inStock;
+                delete variant.inventory.state;
+                delete variant.inventory.inStores;
+              }
+
+              return variant;
+            });
+          }
+          break;
+        case "silvan":
+          delete element.SubscribeToStockUpdatesEnabled;
+          delete element.PreferredStoreId;
+          delete element.AllowDropShipment;
+          delete element.deliveryMessage;
+          delete element.deliveryMessageRuleNumber;
+          delete element.clickAndCollectMessage;
+          delete element.clickAndCollectMessageRuleNumber;
+          delete element.IconOverlay;
+          delete element.IdWithSpace;
+          delete element.BookButtonText;
+          delete element.iconOverlay;
+          delete element.FreightInclVat;
+          delete element.rentalText;
+          delete element.FulfillmentType;
+
+          if (element?.IsFromPrice === false) {
+            delete element.IsFromPrice;
+          }
+          if (element?.CanBeTinted === false) {
+            delete element.CanBeTinted;
+          }
+          if (element?.MustBeTinted === false) {
+            delete element.MustBeTinted;
+          }
+          if (element?.IsTintablePaint === false) {
+            delete element.IsTintablePaint;
+          }
+          if (element?.isRental === false) {
+            delete element.isRental;
+          }
+          if (element?.showDatasheetLink === false) {
+            delete element.showDatasheetLink;
+          }
+          if (element?.hasEnergyImage === false) {
+            delete element.hasEnergyImage;
+          }
+          if (element?.isPaint === false) {
+            delete element.isPaint;
+          }
+          if (element?.isMultiQuantity === false) {
+            delete element.isMultiQuantity;
+          }
+          if (element?.showEnergyLabel === false) {
+            delete element.showEnergyLabel;
+          }
+          if (element?.campaign) {
+            if (element.campaign?.isActive === false) {
+              delete element.campaign.isActive;
+            }
+            if (Object.keys(element.campaign).length === 0) {
+              delete element.campaign;
+            }
+          }
+          if (element?.IsCampaignActive === false) {
+            delete element.IsCampaignActive;
+          }
+          if (element?.IsFreeProduct === false) {
+            delete element.IsFreeProduct;
+          }
+          if (element?.HasEnergyAsset === false) {
+            delete element.HasEnergyAsset;
+          }
+          if (element?.HasPalletFee === false) {
+            delete element.HasPalletFee;
+          }
+          if (element?.IsRentalVariant === false) {
+            delete element.IsRentalVariant;
+          }
+          break;
+        case "jemogfix":
+          delete element.useRealtimeStock;
+          delete element.deliveryTime;
+          delete element.deliveryType;
+          delete element.enableDeliveryCostIndicator;
+          delete element.isAllowedInBasket;
+          if (element?.stocks) {
+            for (const stockKey in element.stocks) {
+              if (element.stocks.hasOwnProperty(stockKey)) {
+                const stock = element.stocks[stockKey];
+                delete stock.statusCode;
+                delete stock.amount;
+                delete stock.useRealtimeStock;
+                delete stock.lastUpdatedDateUtc;
+              }
+            }
+          }
+          if (element?.freeFreightType === 0) {
+            delete element.freeFreightType;
+          }
+          if (element?.isVoucher === false) {
+            delete element.isVoucher;
+          }
+          if (element?.isAllowedInBasket === false) {
+            delete element.isAllowedInBasket;
+          }
+          if (element?.hideStockNumberInUI === false) {
+            delete element.hideStockNumberInUI;
+          }
+          if (element?.energyHasDataSheet === false) {
+            delete element.energyHasDataSheet;
+          }
+          if (element?.energyHasIcon === false) {
+            delete element.energyHasIcon;
+          }
+          if (element?.price) {
+            delete element?.alternativePriceShow;
+            delete element?.freeFreightType;
+            delete element?.alternativePriceFontSize;
+            if (element?.multiPricesShow === false) {
+              delete element.multiPricesShow;
+            }
+            if (element?.enableDeliveryCostIndicator === false) {
+              delete element.enableDeliveryCostIndicator;
+            }
+          }
+          if (element.documents && Array.isArray(element.documents)) {
+            element.documents.forEach((doc: any) => {
+              if (doc.product) {
+                delete doc.product.language;
+                delete doc.product.useRealtimeStock;
+                delete doc.product.deliveryType;
+                delete doc.product.deliveryTime;
+                delete doc.product.enableDeliveryCostIndicator;
+                delete doc.product.freeFreightType;
+                if (doc.product.isVoucher === false) {
+                  delete doc.product.isVoucher;
+                }
+                delete doc.product.isAllowedInBasket;
+                delete doc.product.hideStockNumberInUI;
+                if (doc.product.energyHasDataSheet === false) {
+                  delete doc.product.energyHasDataSheet;
+                }
+                if (doc.product.energyHasIcon === false) {
+                  delete doc.product.energyHasIcon;
+                }
+                if (doc.product?.price) {
+                  delete doc.product.price.alternativePriceShow;
+                  delete doc.product.price.freeFreightType;
+                  delete doc.product.price.alternativePriceFontSize;
+                  if (doc.product.price?.multiPricesShow === false) {
+                    delete doc.product.price.multiPricesShow;
+                  }
+                  if (
+                    doc.product.price?.enableDeliveryCostIndicator === false
+                  ) {
+                    delete doc.product.price.enableDeliveryCostIndicator;
+                  }
+                }
+              }
+            });
+          }
+          break;
+        case "valdemarsro":
+          delete element.created_at;
+          delete element.updated_at;
+          delete element.priority;
+          delete element.premium;
+          delete element.print_url;
+          break;
+        case "barcodes":
+          if (element?.fotex) {
+            element["foetex"] = element.fotex;
+            delete element.fotex;
+          }
+          break;
+
+
+---------------
+
+          // delete element.ageCode;
+          // delete element.blockedByHoliday;
+          // delete element.categories;
+          // delete element.consumerFacingHierarchy;
+          // delete element.cpOffer;
+          // delete element.cpOfferId;
+          // delete element.facetFilters;
+          // delete element.hasImage;
+          // delete element.hasimage;
+          // delete element.isInCurrentLeaflet;
+          // delete element.isInOffer;
+          // delete element.isOnOfferIn;
+          // delete element.multipromos;
+          // delete element.pant;
+          // delete element.targetCSR;
+          // delete element.targetEnvironmental;
+          // delete element.targetGBB;
+          // delete element.targetOffer;
+          // delete element.targetOrganic;
+          // delete element.apple_id;
+          // delete element.article_hierarchy_node;
+          // delete element.at;
+          // delete element.bilka;
+          // delete element.bilka_active_offer_offer_id;
+          // delete element.bilka_delivery_max_days;
+          // delete element.bilka_delivery_min_days;
+          // delete element.bilka_delivery_price;
+          // delete element.bilka_dos_last_modified;
+          // delete element.bilka_in_stock_stores_count;
+          // delete element.bilka_is_exposed;
+          // delete element.bilka_is_reservable;
+          // delete element.bilka_is_sold_online;
+          // delete element.bilka_pricerunner_delivery_price;
+          // delete element.bilka_send_and_hent_price;
+          // delete element.bilka_show_discount_message;
+          // delete element.bilka_stock_count_online;
+          // delete element.bilka_stock_count_status_online;
+          // delete element.bilka_stock_type;
+          // delete element.blockbit;
+          // delete element.br;
+          // delete element.br_delivery_max_days;
+          // delete element.br_delivery_min_days;
+          // delete element.br_delivery_price;
+          // delete element.br_dos_last_modified;
+          // delete element.br_in_stock_stores_count;
+          // delete element.br_is_exposed;
+          // delete element.br_is_reservable;
+          // delete element.br_is_sold_online;
+          // delete element.br_pricerunner_delivery_price;
+          // delete element.br_send_and_hent_price;
+          // delete element.br_show_discount_message;
+          // delete element.br_stock_count_online;
+          // delete element.br_stock_count_status_online;
+          // delete element.br_stock_type;
+          // delete element.brand_page;
+          // delete element.campaigntags;
+          // delete element.categoriesPIM;
+          // delete element.categoriesURL;
+          // delete element.category_id;
+          // delete element.cc_discount_text;
+          // delete element.cfh_nodes;
+          // delete element.count;
+          // delete element.coupon_offer_id;
+          // delete element.CreatedOn;
+          // delete element.deepestCategoryPath;
+          // delete element.display_cc_fee;
+          // delete element.eid;
+          // delete element.enablesFreeFreight;
+          // delete element.event_block_tag;
+          // delete element.eventBlockTag;
+          // delete element.expected_available_from;
+          // delete element.fav;
+          // delete element.foetex;
+          // delete element.foetex_delivery_max_days;
+          // delete element.foetex_delivery_min_days;
+          // delete element.foetex_delivery_price;
+          // delete element.foetex_dos_last_modified;
+          // delete element.foetex_in_stock_stores_count;
+          // delete element.foetex_is_exposed;
+          // delete element.foetex_is_reservable;
+          // delete element.foetex_is_sold_online;
+          // delete element.foetex_pricerunner_delivery_price;
+          // delete element.foetex_send_and_hent_price;
+          // delete element.foetex_show_discount_message;
+          // delete element.foetex_stock_count_online;
+          // delete element.foetex_stock_count_status_online;
+          // delete element.foetex_stock_type;
+          // delete element.has_image;
+          // delete element.hierarchy_node;
+          // delete element.hierarchyNode;
+          // delete element.high_level_promotion;
+          // delete element.is_approved_for_sale;
+          // delete element.is_click_and_collectible;
+          // delete element.is_exposed;
+          // delete element.is_gift_wrapping_supported;
+          // delete element.is_in_stock_online;
+          // delete element.is_in_stock_stores;
+          // delete element.is_reservable;
+          // delete element.isInAssortmentIn;
+          // delete element.isInStock;
+          // delete element.isUnlimitedStock;
+          // delete element.last_updated_at;
+          // delete element.locked;
+          // delete element.nameURL;
+          // delete element.nonsearchable;
+          // delete element.not_reservable_from;
+          // delete element.not_reservable_to;
+          // delete element.notifyMeEnabled;
+          // delete element.online_to;
+          // delete element.oos;
+          // delete element.outOfStock;
+          // delete element.page_id;
+          // delete element.pathPIM;
+          // delete element.pathURL;
+          // delete element.product_url;
+          // delete element.promotion_end_date;
+          // delete element.promotion_id;
+          // delete element.promotion_start_date;
+          // delete element.PublishedOn;
+          // delete element.show_discount_message;
+          // delete element.showColor;
+          // delete element.showSize;
+          // delete element.sold_in_stores;
+          // delete element.sold_online;
+          // delete element.stock_type;
+          // delete element.uid;
+          // delete element.UpdatedOn;
+          // delete element.UrlSegment;
+          // delete element.viking_offer_id;
+          // delete element.web_category;
+          // delete element.y_commercial_cat;
+
+          // if (element?.currentPriceTag) {
+          //   if (element.currentPriceTag?.discount?.value === 0) {
+          //     delete element.currentPriceTag.discount.value;
+          //   }
+
+          //   if (element.currentPriceTag?.discount?.displayValue === 0) {
+          //     delete element.currentPriceTag.discount.displayValue;
+          //   }
+          // }
+
+          // if (element?.hasSizeVariants === false) {
+          //   delete element.hasSizeVariants;
+          // }
+          // if (element?.offerPercent === 0) {
+          //   delete element.offerPercent;
+          // }
+          // if (element?.sales_price === 0) {
+          //   delete element.sales_price;
+          // }
+          // if (element?.list_price === 0) {
+          //   delete element.list_price;
+          // }
+          // if (element?.has_membership_promotion === false) {
+          //   delete element.has_membership_promotion;
+          // }
+          // if (element?.is_always_low_price === false) {
+          //   delete element.is_always_low_price;
+          // }
+          // if (
+          //   element?.variant_siblings &&
+          //   Array.isArray(element?.variant_siblings)
+          // ) {
+          //   for (let sib of element?.variant_siblings) {
+          //     delete sib.in_stock;
+          //   }
+          // }
+          // if (element?.hasDeposit === false) {
+          //   delete element.hasDeposit;
+          // }
+          // if (element?.isPromotion === false) {
+          //   delete element.isPromotion;
+          // }
+          // if (element?.swan_label === false) {
+          //   delete element.swan_label;
+          // }
+          // if (element?.keyhole_label === false) {
+          //   delete element.keyhole_label;
+          // }
+          // if (element?.Status === "Finished") {
+          //   delete element.Status;
+          // }
+          // if (element?.extension) {
+          //   delete element.extension?.UrlSegment;
+          // }
+          // if (element?.beverages) {
+          //   if (element.beverages?.alcohol) {
+          //     delete element.beverages.alcohol;
+          //   }
+          //   if (element.beverages?.length === 0) {
+          //     delete element.beverages;
+          //   }
+          // }
+          // if (element?.isInCurrentLeaflet === false) {
+          //   delete element.isInCurrentLeaflet;
+          // }
+          // if (element?.is_multibuy === false) {
+          //   delete element.is_multibuy;
+          // }
+          // if (element?.pant === false) {
+          //   delete element.pant;
+          // }
+          // if (element?.isGlobalOffer === false) {
+          //   delete element.isGlobalOffer;
+          // }
+          // if (element?.ageCode === 0) {
+          //   delete element.ageCode;
+          // }
+          // if (element?.blockbit === 0) {
+          //   delete element.blockbit;
+          // }
+          // if (element?.targetOffer === 0) {
+          //   delete element.targetOffer;
+          // }
+          // if (element?.targetCSR === 0 || element?.targetCSR === false) {
+          //   delete element.targetCSR;
+          // }
+          // if (
+          //   element?.targetEnvironmental === 0 ||
+          //   element?.targetEnvironmental === false
+          // ) {
+          //   delete element.targetEnvironmental;
+          // }
+          // if (
+          //   element?.targetHealthClaim === 0 ||
+          //   element?.targetHealthClaim === false
+          // ) {
+          //   delete element.targetHealthClaim;
+          // }
+          // if (
+          //   element?.targetOrganic === 0 ||
+          //   element?.targetOrganic === false
+          // ) {
+          //   delete element.targetOrganic;
+          // }
+          // if (element?.hasImage === 0) {
+          //   delete element.hasImage;
+          // }
+          // if (element?.cpOffer === false) {
+          //   delete element.cpOffer;
+          // }
+          // if (element?.cpOfferPrice === 0) {
+          //   delete element.cpOfferPrice;
+          // }
+          // if (element?.cpOfferAmount === 0) {
+          //   delete element.cpOfferAmount;
+          // }
+          // if (element?.cpDiscount === 0) {
+          //   delete element.cpDiscount;
+          // }
+          // if (element?.cpPercentDiscount === 0) {
+          //   delete element.cpPercentDiscount;
+          // }
+          // if (element?.cpOriginalPrice === 0) {
+          //   delete element.cpOriginalPrice;
+          // }
+          // if (element?.cpOfferId === 0) {
+          //   delete element.cpOfferId;
+          // }
+          // if (
+          //   element?.blockedByHoliday === false ||
+          //   element?.blockedByHoliday === 0
+          // ) {
+          //   delete element.blockedByHoliday;
+          // }
+          // if (element?.targetGBB === 0) {
+          //   delete element.targetGBB;
+          // }
+          // if (element?.salesPrice === 0) {
+          //   delete element.salesPrice;
+          // }
+          // if (element?.isOnOffer === false) {
+          //   delete element.isOnOffer;
+          // }
+          // if (element?.promoSplashStyle === 0) {
+          //   delete element.promoSplashStyle;
+          // }
+          // if (element?.plusDeposit === false) {
+          //   delete element.plusDeposit;
+          // }
+          // if (element?.bulky === false) {
+          //   delete element.bulky;
+          // }
+          // if (element?.lateArrival === false) {
+          //   delete element.lateArrival;
+          // }
+          // if (element?.maxPromoQty === 0) {
+          //   delete element.maxPromoQty;
+          // }
+          // if (element?.is_sexual_wellness === false) {
+          //   delete element.is_sexual_wellness;
+          // }
+          // if (element.storeData && typeof element.storeData === "object") {
+          //   for (const storeId in element.storeData) {
+          //     if (element.storeData.hasOwnProperty(storeId)) {
+          //       const storeInfo = element.storeData[storeId];
+          //       delete storeInfo.inStock;
+          //       if (storeInfo.offerMax === 0) {
+          //         delete storeInfo.offerMax;
+          //       }
+          //       if (storeInfo.multipromo === 0) {
+          //         delete storeInfo.multipromo;
+          //       }
+          //       if (storeInfo.multiPromoPrice === 0) {
+          //         delete storeInfo.multiPromoPrice;
+          //       }
+          //       if (storeInfo.offerCount === 0) {
+          //         delete storeInfo.offerCount;
+          //       }
+          //       if (storeInfo.beforePrice === 0) {
+          //         delete storeInfo.beforePrice;
+          //       }
+          //       if (storeInfo.unitsOfMeasureOfferPrice === 0) {
+          //         delete storeInfo.unitsOfMeasureOfferPrice;
+          //       }
+          //     }
+          //   }
+          // }
+
+-------
+
+    if (element?.article && typeof element.article === 'string') {
+      element.article = element.article.includes('; ')
+        ? element.article.split('; ')
+        : [element.article];
+    }
+
+    if (element?.objectID) {
+      if (!element.article || !Array.isArray(element.article)) {
+        element.article = [];
+      }
+
+      if (!element.article.includes(element.objectID)) {
+        element.article.push(element.objectID);
+      }
+
+      delete element.objectID;
+    }
+
+    if (element?.infos && Array.isArray(element.infos)) {
+      element.infos = element.infos
+        .map((info: any) => {
+          if (Array.isArray(info.items)) {
+            info.items = info.items
+              .map((item: any) => {
+                delete item.type;
+
+                for (const key of Object.keys(item)) {
+                  if (
+                    item[key] === '' ||
+                    item[key] === null ||
+                    item[key] === undefined
+                  ) {
+                    delete item[key];
+                  }
+                }
+
+                if (info?.code === 'description' && item.value === element?.description) {
+                  delete item.title;
+                  delete item.code;
+                  delete item.value;
+                } else if (info?.code === 'product_details') {
+                  if (item?.title === 'PID' && this.isEmpty(item?.value)) {
+                    delete item.title;
+                  }
+                  if (item?.title === 'Article') {
+                    if (!Array.isArray(element.article)) {
+                      element.article = this.isEmpty(element.article)
+                        ? []
+                        : [String(element.article)];
+                    }
+
+                    if (!this.isEmpty(item.value) && !element.article.includes(item.value)) {
+                      element.article.push(item.value);
+                    }
+
+                    if (!this.isEmpty(item.value) && element.article.includes(item.value)) {
+                      delete item.title;
+                      delete item.value;
+                    }
+                  }
+                  if (item?.title === 'EAN' && element?.gtin === item?.value) {
+                    delete item.title;
+                    delete item.value;
+                  }
+                }
+                return item;
+              })
+              .filter((item: any) => Object.keys(item).length > 0);
+
+            if (info.items.length === 0) delete info.items;
+          }
+          else if (info?.items && typeof info.items === 'object') {
+            delete info.items.type;
+
+            for (const key of Object.keys(info.items)) {
+              if (
+                info.items[key] === '' ||
+                info.items[key] === null ||
+                info.items[key] === undefined
+              ) {
+                delete info.items[key];
+              }
+            }
+
+            if (Object.keys(info.items).length === 0) delete info.items;
+          }
+
+          if (!info.items) {
+            delete info.code;
+            delete info.title;
+          }
+
+          return info;
+        })
+        .filter((info: any) => Object.keys(info).length > 0);
+
+      if (element.infos.length === 0) delete element.infos;
+    }
+
+-------
+
+    //     "categoryStockLimit",
+    //     "currentStock",
+    //     "daysSinceLastCampaignSale",
+    //     "daysSinceLastSale",
+    //     "hasSold",
+    //     "soldCount",
+    //     "timeSinceLastCampaignSale",
+    //     "timeSinceLastSale",
+    //     "forceDisplay",
+    //     "forceHidden",
+    //     "isFavoriteProduct",
+    //     "StockInStoreLastUpdatedDate",
+    //     "StockOnlineLastUpdatedDate",
+    //     "availableInStoreIconType",
+    //     "availableInStoreStatus",
+    //     "availableInStoreText",
+    //     "availableOnlineIconType",
+    //     "availableOnlineStatus",
+    //     "availableOnlineText",
+    //     "Availability",
+    //     "Favorite",
+    //     "Score",
+    //     "_rankingInfo",
+    //     "inStock",
+    //     "last_syncronized",
+    //     "f_stock_availability",
+    //     "inStockStore",
+    //     "outStockStore",
+    //     "epoch_updated_at",
+    //     "popularity",
+    //     "format_name",
+    //     "in_stock_stores_count",
+    //     "stock_count_online",
+    //     "stock_count_status_online",
+    //     "_snippetResult",
+    //     "language",
+    //     "latestStockUpdate",
+    //     "currentlyDownloading",
+    //     "haveBeenProcessed",
+    //     "isInStock",
+
+-----
+
+  // private removeUnwantedFields(element: Record<string, any>): void {
+  //   this.config.fieldsToRemove.forEach(
+  //     (field: string) => delete element[field]
+  //   );
+  // }
+
+  // private processElementVariants(element: any): void {
+  //   if (element?.extra && "popularity" in element.extra) {
+  //     delete element.extra.popularity;
+  //   }
+
+  //   if (element.selectedVariant?.stock) {
+  //     delete element.selectedVariant.stock.webshopStockColor;
+  //     delete element.selectedVariant.stock.webshopStockText;
+  //     delete element.selectedVariant.stock.shopStockColor;
+  //     delete element.selectedVariant.stock.shopStockText;
+  //     delete element.selectedVariant.stock.latestStockUpdate;
+  //   }
+
+  //   if (element.ATS) {
+  //     delete element.ATS.inStock;
+  //     delete element.ATS.inStockDay0;
+  //     delete element.ATS.inStockDay1;
+  //     delete element.ATS.inStockDay2;
+  //     delete element.ATS.nextAvailableDate;
+  //     if (element.ATS?.ultraFresh === false) {
+  //       delete element.ATS.ultraFresh;
+  //     }
+  //   }
+  // }
+
+          // this.removeUnwantedFields(product);
+        // this.processElementVariants(product);
+
+---------------------------------------------
+
+  // BaseNormalizer.ts
+  // protected processDocument(doc: any): any {
+    // First, clean hidden characters from the entire document
+    // doc = this.removeHiddenCharacters(doc);
+
+
+  /**
+   * Recursively removes hidden characters (like 0xa0 non-breaking space) from all string values in an object
+   */
+  // public removeHiddenCharacters(obj: any): any {
+  //   if (obj === null || obj === undefined) {
+  //     return obj;
+  //   }
+
+  //   if (typeof obj === 'string') {
+  //     // Remove 0xa0 (non-breaking space) and other hidden characters
+  //     return obj
+  //       .replace(/\u00a0/g, ' ')  // Replace non-breaking space with regular space
+  //       .replace(/[\u200b-\u200f\u2028-\u202f\u205f-\u206f]/g, '')  // Remove other zero-width/hidden chars
+  //       .trim(); // Remove leading/trailing whitespace
+  //   }
+
+  //   if (Array.isArray(obj)) {
+  //     return obj.map(item => this.removeHiddenCharacters(item));
+  //   }
+
+  //   if (typeof obj === 'object') {
+  //     const cleaned: any = {};
+  //     for (const [key, value] of Object.entries(obj)) {
+  //       // Clean both key and value
+  //       const cleanedKey = this.removeHiddenCharacters(key);
+  //       const cleanedValue = this.removeHiddenCharacters(value);
+  //       cleaned[cleanedKey] = cleanedValue;
+  //     }
+  //     return cleaned;
+  //   }
+
+  //   return obj;
+  // }
+
+  // SallingNormalizer.test.ts
+  // describe("removeHiddenCharacters", () => {
+  //   it("should remove 0xa0 (non-breaking space) from strings", () => {
+  //     const input = { id: 963971, shortDescription: "<ul>\n<li>Halskæde fra Maanesten</li>\n<li>18 karat forgyldt sterlingsølv</li>\n<li>Vedhæng: Hjerte-nøglelås og nøgle </li>\n<li>Længde: 44+2 cm</li>\n</ul>" };
+  //     const expected = { id: 963971, shortDescription: "<ul>\n<li>Halskæde fra Maanesten</li>\n<li>18 karat forgyldt sterlingsølv</li>\n<li>Vedhæng: Hjerte-nøglelås og nøgle</li>\n<li>Længde: 44+2 cm</li>\n</ul>" };
+  //     const result = (normalizer as any).removeHiddenCharacters(input);
+
+  //     expect(result).toEqual(expected);
+  //   });
+
+  //   it("should remove hidden characters from nested objects", () => {
+  //     const input = {
+  //       name: "Product\u00a0Name",
+  //       description: "Some\u00a0description\u00a0here",
+  //       nested: {
+  //         value: "Nested\u00a0Value",
+  //         array: ["Item\u00a01", "Item\u00a02"]
+  //       }
+  //     };
+  //     const expected = {
+  //       name: "Product Name",
+  //       description: "Some description here", 
+  //       nested: {
+  //         value: "Nested Value",
+  //         array: ["Item 1", "Item 2"]
+  //       }
+  //     };
+  //     const result = (normalizer as any).removeHiddenCharacters(input);
+
+  //     expect(result).toEqual(expected);
+  //   });
+
+  //   it("should handle object keys with hidden characters", () => {
+  //     const input = {
+  //       "normal\u00a0key": "value",
+  //       "another\u00a0key": "another\u00a0value"
+  //     };
+  //     const expected = {
+  //       "normal key": "value",
+  //       "another key": "another value"
+  //     };
+  //     const result = (normalizer as any).removeHiddenCharacters(input);
+
+  //     expect(result).toEqual(expected);
+  //   });
+
+  //   it("should preserve non-string values", () => {
+  //     const input = {
+  //       number: 123,
+  //       boolean: true,
+  //       null_value: null,
+  //       undefined_value: undefined,
+  //       string_with_chars: "test\u00a0string"
+  //     };
+  //     const expected = {
+  //       number: 123,
+  //       boolean: true,
+  //       null_value: null,
+  //       undefined_value: undefined,
+  //       string_with_chars: "test string"
+  //     };
+  //     const result = (normalizer as any).removeHiddenCharacters(input);
+
+  //     expect(result).toEqual(expected);
+  //   });
+  // });
+
+  // describe("processDocument integration", () => {
+  //   it("should clean hidden characters before processing", () => {
+  //     const input = {
+  //       active_gtin: 5709386895792,
+  //       name: "Product\u00a0With\u00a0Hidden\u00a0Chars",
+  //       description: "Some\u00a0description"
+  //     };
+  //     // Mock the step1_feed method to see what it receives
+  //     const originalStep1Feed = (normalizer as any).step1_feed;
+  //     let receivedDoc: any;
+  //     (normalizer as any).step1_feed = (doc: any) => {
+  //       receivedDoc = doc;
+  //       return originalStep1Feed.call(normalizer, doc);
+  //     };
+
+  //     (normalizer as any).processDocument(input);
+
+  //     // Verify the document was cleaned before reaching step1_feed
+  //     expect(receivedDoc.name).toEqual("Product With Hidden Chars");
+  //     expect(receivedDoc.description).toEqual("Some description");
+
+  //     // Restore original method
+  //     (normalizer as any).step1_feed = originalStep1Feed;
+  //   });
+  // });
+
+  // BilkaToGo
+      // protected normalizeDocument(doc: any): any {
+    //     const normalized = JSON.parse(JSON.stringify(doc));
+
+    //     delete normalized._id;
+    //     delete normalized.hash;
+    //     delete normalized.last_syncronized;
+    //     delete normalized.hierarchy_node;
+    //     delete normalized.targetOffer;
+    //     delete normalized.coupon_offer_id;
+    //     delete normalized.eventBlockTag;
+    //     delete normalized.viking_offer_id;
+    //     delete normalized.uom;
+    //     delete normalized.blockbit;
+    //     delete normalized.inStockStore;
+    //     delete normalized.outStockStore;
+    //     delete normalized.nonsearchable;
+    //     delete normalized.ageCode;
+    //     delete normalized.isInOffer;
+
+    //     if (normalized.article && !Array.isArray(normalized.article)) {
+    //         normalized.article = [normalized.article];
+    //     } else if (!normalized.article) {
+    //         normalized.article = [];
+    //     }
+
+    //     if (normalized.article && Array.isArray(normalized.article)) {
+    //         const flattenedArticles = [];
+    //         for (const art of normalized.article) {
+    //             if (typeof art === 'string' && art.includes(';')) {
+    //                 const parts = art.split(';').map(part => part.trim()).filter(part => part !== '');
+    //                 flattenedArticles.push(...parts);
+    //             } else if (art) {
+    //                 flattenedArticles.push(art);
+    //             }
+    //         }
+    //         normalized.article = [...new Set(flattenedArticles)];
+    //     }
+
+    //     if (normalized.gtin && !Array.isArray(normalized.gtin)) {
+    //         normalized.gtin = [normalized.gtin];
+    //     } else if (!normalized.gtin) {
+    //         normalized.gtin = [];
+    //     }
+
+    //     if (normalized?.id === normalized?.objectID) {
+    //         delete normalized.objectID;
+    //     }
+
+    //     if (normalized?.name === normalized?.description) {
+    //         delete normalized.description;
+    //     }
+
+    //     if (normalized?.name === normalized?.productName) {
+    //         delete normalized.productName;
+    //     }
+
+    //     // Process infos array
+    //     if (normalized.infos && Array.isArray(normalized.infos)) {
+    //         const infosToKeep = [];
+    //         for (const info of normalized.infos) {
+    //             let shouldKeepInfo = true;
+
+    //             if (info.code === 'description' && info.items) {
+    //                 const items = Array.isArray(info.items) ? info.items : [info.items];
+    //                 const itemsToKeep = [];
+    //                 for (const item of items) {
+    //                     if (item && typeof item === 'object') {
+    //                         delete item.type;
+    //                         if (item.value) {
+    //                             if (!normalized.description) {
+    //                                 normalized.description = item.value;
+    //                             }
+    //                             delete item.value;
+    //                         }
+    //                         if (Object.keys(item).length > 0) {
+    //                             itemsToKeep.push(item);
+    //                         }
+    //                     }
+    //                 }
+    //                 if (itemsToKeep.length > 0) {
+    //                     info.items = itemsToKeep;
+    //                     shouldKeepInfo = true;
+    //                 } else {
+    //                     shouldKeepInfo = false;
+    //                 }
+    //             } else if (info.code === 'ingredients' && info.items) {
+    //                 const items = Array.isArray(info.items) ? info.items : [info.items];
+    //                 const ingredientItems = [];
+    //                 for (const item of items) {
+    //                     if (item && typeof item === 'object') {
+    //                         delete item.type;
+    //                         ingredientItems.push(item);
+    //                     }
+    //                 }
+    //                 if (ingredientItems.length > 0) {
+    //                     normalized.ingredients = ingredientItems;
+    //                     shouldKeepInfo = false;
+    //                 }
+    //                 else {
+    //                     shouldKeepInfo = true;
+    //                 }
+    //             } else if (info.code === 'nutritional_100' && info.items) {
+    //                 const items = Array.isArray(info.items) ? info.items : [info.items];
+    //                 const nutritionalItems = [];
+    //                 for (const item of items) {
+    //                     if (item && typeof item === 'object') {
+    //                         delete item.type;
+    //                         if (item.title || item.value) {
+    //                             nutritionalItems.push(item);
+    //                         }
+    //                     }
+    //                 }
+    //                 if (nutritionalItems.length > 0) {
+    //                     normalized.nutritional100 = nutritionalItems;
+    //                     shouldKeepInfo = false;
+    //                 }
+    //                 else {
+    //                     shouldKeepInfo = true;
+    //                 }
+    //             } else if (info.code === 'productspecification') {
+    //                 if (!info.items || (Array.isArray(info.items) && info.items.length === 0)) {
+    //                     // Items is empty or doesn't exist, just delete the object
+    //                     shouldKeepInfo = false;
+    //                 } else {
+    //                     const items = Array.isArray(info.items) ? info.items : [info.items];
+
+    //                     // Delete 'type' field from each item
+    //                     items.forEach((item: any) => {
+    //                         if (item && typeof item === 'object') {
+    //                             delete item.type;
+    //                         }
+    //                     });
+
+    //                     // Assign to productSpecifications if it doesn't exist
+    //                     if (!normalized.productSpecifications) {
+    //                         normalized.productSpecifications = items;
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                     else {
+    //                         shouldKeepInfo = true;
+    //                     }
+    //                 }
+    //             } else if (info.code === 'documents') {
+    //                 if (!info.items || (Array.isArray(info.items) && info.items.length === 0)) {
+    //                     shouldKeepInfo = false;
+    //                 } else {
+    //                     const items = Array.isArray(info.items) ? info.items : [info.items];
+
+    //                     items.forEach((item: any) => {
+    //                         if (item && typeof item === 'object') {
+    //                             delete item.type;
+    //                         }
+    //                     });
+
+    //                     // Assign to documents if it doesn't exist
+    //                     if (!normalized.documents) {
+    //                         normalized.documents = items;
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                     else {
+    //                         shouldKeepInfo = true;
+    //                     }
+    //                 }
+    //             } else if (info.code === 'manufacturer_info') {
+    //                 if (!info.items || (Array.isArray(info.items) && info.items.length === 0)) {
+    //                     // Items is empty or doesn't exist, just delete the object
+    //                     shouldKeepInfo = false;
+    //                 } else {
+    //                     const items = Array.isArray(info.items) ? info.items : [info.items];
+    //                     items.forEach((item: any) => {
+    //                         if (item && typeof item === 'object') {
+    //                             delete item.type;
+    //                         }
+    //                     });
+
+    //                     if (!normalized.manufacturerInfo) {
+    //                         normalized.manufacturerInfo = items;
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                     else {
+    //                         shouldKeepInfo = true;
+    //                     }
+    //                 }
+    //             }
+    //             else if (info.code === 'product_details') {
+    //                 if (!info.items || (Array.isArray(info.items) && info.items.length === 0)) {
+    //                     shouldKeepInfo = false;
+    //                 } else {
+    //                     const items = Array.isArray(info.items) ? info.items : [info.items];
+    //                     const itemsToKeep = [];
+
+    //                     for (const item of items) {
+    //                         if (item && typeof item === 'object') {
+    //                             delete item.type;
+    //                             let shouldKeepItem = true;
+
+    //                             if (item.title === 'Netto mængde' && item.value) {
+    //                                 const normalizedValue = this.normalizeValueForComparison(String(item.value));
+    //                                 const normalizedNetcontent = normalized.netcontent ? this.normalizeValueForComparison(String(normalized.netcontent)) : null;
+
+    //                                 if (normalizedNetcontent && normalizedValue === normalizedNetcontent) {
+    //                                     shouldKeepItem = false;
+    //                                 } else if (!normalized.netcontent) {
+    //                                     normalized.netcontent = item.value;
+    //                                     shouldKeepItem = false;
+    //                                 }
+    //                                 else if (!normalized.netAmount) {
+    //                                     normalized.netAmount = item.value;
+    //                                     shouldKeepItem = false;
+    //                                 }
+    //                                 else {
+    //                                     shouldKeepInfo = true;
+    //                                 }
+    //                             } else if (item.title === 'Artikel' && item.value) {
+    //                                 const articleArray = Array.isArray(normalized.article) ? normalized.article : [];
+    //                                 const itemValueStr = String(item.value);
+
+    //                                 if (articleArray.some((art: any) => String(art) === itemValueStr)) {
+    //                                     shouldKeepItem = false;
+    //                                 } else {
+    //                                     if (typeof item.value === 'string' && item.value.includes(';')) {
+    //                                         const parts = item.value.split(';').map((part: any) => part.trim()).filter((part: any) => part !== '');
+    //                                         for (const part of parts) {
+    //                                             if (!normalized.article.includes(part)) {
+    //                                                 normalized.article.push(part);
+    //                                             }
+    //                                         }
+    //                                     } else {
+    //                                         if (!normalized.article.includes(item.value)) {
+    //                                             normalized.article.push(item.value);
+    //                                         }
+    //                                     }
+    //                                     shouldKeepItem = false;
+    //                                 }
+    //                             } else if (item.title === 'PID' && item.value) {
+    //                                 if (normalized.id && normalized.id === item.value) {
+    //                                     shouldKeepItem = false;
+    //                                 } else if (!normalized.id) {
+    //                                     normalized.id = item.value;
+    //                                     shouldKeepItem = false;
+    //                                 }
+    //                             } else if (item.title === 'Varebetegnelse' && item.value) {
+    //                                 if (!normalized.itemDescription) {
+    //                                     normalized.itemDescription = item.value;
+    //                                     shouldKeepItem = false;
+    //                                 }
+    //                             } else if (item.title === 'EAN' && item.value) {
+    //                                 if (!normalized.gtin.includes(item.value)) {
+    //                                     normalized.gtin.push(item.value);
+    //                                 }
+    //                                 shouldKeepItem = false;
+    //                             } else if (item.title === 'EAN' && !item.value) {
+    //                                 shouldKeepItem = false;
+    //                             } else if (item.title && item.value) {
+    //                                 shouldKeepItem = true;
+    //                             } else {
+    //                                 shouldKeepItem = false;
+    //                             }
+
+    //                             if (shouldKeepItem) {
+    //                                 itemsToKeep.push(item);
+    //                             }
+    //                         }
+    //                     }
+
+    //                     if (itemsToKeep.length > 0) {
+    //                         info.items = itemsToKeep;
+    //                     } else {
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                 }
+    //             }
+    //             else if (info.code === 'vitaminsandminerals') {
+    //                 if (!info.items || (Array.isArray(info.items) && info.items.length === 0)) {
+    //                     shouldKeepInfo = false;
+    //                 } else {
+    //                     const items = Array.isArray(info.items) ? info.items : [info.items];
+
+    //                     items.forEach((item: any) => {
+    //                         if (item && typeof item === 'object') {
+    //                             delete item.type;
+    //                         }
+    //                     });
+
+    //                     if (!normalized.vitaminsandminerals) {
+    //                         normalized.vitaminsandminerals = items;
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                     else {
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                 }
+    //             }
+    //             else if (info.code === 'originlist') {
+    //                 if (!info.items || (Array.isArray(info.items) && info.items.length === 0)) {
+    //                     shouldKeepInfo = false;
+    //                 } else {
+    //                     const items = Array.isArray(info.items) ? info.items : [info.items];
+
+    //                     items.forEach((item: any) => {
+    //                         if (item && typeof item === 'object') {
+    //                             delete item.type;
+    //                         }
+    //                     });
+
+    //                     if (!normalized.originAndVariety) {
+    //                         normalized.originAndVariety = items;
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                     else {
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                 }
+    //             }
+    //             else if (info.code === 'pant') {
+    //                 if (!info.items || (Array.isArray(info.items) && info.items.length === 0)) {
+    //                     shouldKeepInfo = false;
+    //                 } else {
+    //                     const items = Array.isArray(info.items) ? info.items : [info.items];
+
+    //                     items.forEach((item: any) => {
+    //                         if (item && typeof item === 'object') {
+    //                             delete item.type;
+    //                         }
+    //                     });
+
+    //                     if (!normalized.deposit) {
+    //                         if (normalized?.pant === true) {
+    //                             delete normalized.pant;
+    //                         }
+
+    //                         normalized.deposit = items;
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                     else {
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                 }
+    //             }
+    //             else if (info.code === 'petfoodingredients') {
+    //                 if (!info.items || (Array.isArray(info.items) && info.items.length === 0)) {
+    //                     shouldKeepInfo = false;
+    //                 } else {
+    //                     const items = Array.isArray(info.items) ? info.items : [info.items];
+
+    //                     items.forEach((item: any) => {
+    //                         if (item && typeof item === 'object') {
+    //                             delete item.type;
+    //                         }
+    //                     });
+
+    //                     if (!normalized.petFoodIngredients) {
+    //                         normalized.petFoodIngredients = items;
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                     else {
+    //                         shouldKeepInfo = false;
+    //                     }
+    //                 }
+    //             }
+
+    //             if (shouldKeepInfo) {
+    //                 infosToKeep.push(info);
+    //             }
+    //         }
+
+    //         // Update or remove infos array
+    //         if (infosToKeep.length > 0) {
+    //             normalized.infos = infosToKeep;
+    //         } else {
+    //             delete normalized.infos;
+    //         }
+    //     }
+
+    //     if (this.isEmpty(normalized?.manufacturer)) {
+    //         delete normalized.manufacturer;
+    //     }
+    //     if (this.isEmpty(normalized?.isInOffer)) {
+    //         delete normalized.isInOffer;
+    //     }
+    //     if (this.isEmpty(normalized?.cpOfferFromDate)) {
+    //         delete normalized.cpOfferFromDate;
+    //     }
+    //     if (this.isEmpty(normalized?.cpOfferToDate)) {
+    //         delete normalized.cpOfferToDate;
+    //     }
+    //     if (this.isEmpty(normalized?.cpOfferTitle)) {
+    //         delete normalized.cpOfferTitle;
+    //     }
+    //     if (this.isEmpty(normalized?.properties)) {
+    //         delete normalized.properties;
+    //     }
+    //     if (this.isEmpty(normalized?.productType)) {
+    //         delete normalized.productType;
+    //     }
+
+    //     // Clean false/zero values
+    //     if (this.isFalse(normalized?.isInCurrentLeaflet)) {
+    //         delete normalized.isInCurrentLeaflet;
+    //     }
+    //     if (this.isFalse(normalized?.cpOfferId)) {
+    //         delete normalized.cpOfferId;
+    //     }
+    //     if (this.isFalse(normalized?.cpOffer)) {
+    //         delete normalized.cpOffer;
+    //     }
+    //     if (this.isFalse(normalized?.cpOfferPrice)) {
+    //         delete normalized.cpOfferPrice;
+    //     }
+    //     if (this.isFalse(normalized?.cpOfferAmount)) {
+    //         delete normalized.cpOfferAmount;
+    //     }
+    //     if (this.isFalse(normalized?.cpDiscount)) {
+    //         delete normalized.cpDiscount;
+    //     }
+    //     if (this.isFalse(normalized?.cpPercentDiscount)) {
+    //         delete normalized.cpPercentDiscount;
+    //     }
+    //     if (this.isFalse(normalized?.cpOriginalPrice)) {
+    //         delete normalized.cpOriginalPrice;
+    //     }
+    //     if (this.isFalse(normalized?.leafletTitle)) {
+    //         delete normalized.leafletTitle;
+    //     }
+    //     if (this.isFalse(normalized?.multibuy_offer_description)) {
+    //         delete normalized.multibuy_offer_description;
+    //     }
+    //     if (this.isFalse(normalized?.blockedByHoliday)) {
+    //         delete normalized.blockedByHoliday;
+    //     }
+    //     if (this.isFalse(normalized?.isGlobalOffer)) {
+    //         delete normalized.isGlobalOffer;
+    //     }
+    //     if (this.isFalse(normalized?.is_multibuy)) {
+    //         delete normalized.is_multibuy;
+    //     }
+    //     if (this.isFalse(normalized?.pant)) {
+    //         delete normalized.pant;
+    //     }
+
+    //     if (normalized.searchHierachy && Array.isArray(normalized.searchHierachy)) {
+    //         normalized.searchHierachy = normalized.searchHierachy.filter((item: string) =>
+    //             item !== 'Consumer Faced Hierarchy Generic' &&
+    //             item !== 'Classification 1 root'
+    //         );
+    //         if (this.isObjectEmpty(normalized.searchHierachy)) {
+    //             delete normalized.searchHierachy;
+    //         } else if (this.isEmpty(normalized.searchHierarchy)) {
+    //             normalized.searchHierarchy = normalized.searchHierachy;
+    //             delete normalized.searchHierachy;
+    //         }
+    //     }
+
+    //     if (normalized.article && Array.isArray(normalized.article)) {
+    //         normalized.article = [...new Set(normalized.article.filter((art: any) => {
+    //             const artStr = String(art);
+    //             return art &&
+    //                 artStr.trim() !== '' &&
+    //                 !artStr.includes('ArticleNumber') &&
+    //                 !artStr.includes('Article Number') &&
+    //                 artStr !== 'Article' &&
+    //                 artStr !== 'PID';
+    //         }))];
+    //         if (normalized.article === 0) {
+    //             delete normalized.article;
+    //         }
+    //     }
+
+    //     if (normalized.gtin && normalized.gtin.length === 0) {
+    //         delete normalized.gtin;
+    //     }
+
+    //     if (normalized.ingredients && Array.isArray(normalized.ingredients)) {
+    //         normalized.ingredients = normalized.ingredients.filter((ing: any) =>
+    //             ing &&
+    //             ing.value &&
+    //             ing.value.trim() !== '' &&
+    //             ing.value !== 'Ingredients' &&
+    //             ing.value !== 'Ingredienser' &&
+    //             ing.value.toLowerCase() !== 'ingredients' &&
+    //             ing.value.toLowerCase() !== 'hej'
+    //         );
+    //         if (normalized.ingredients.length === 0) {
+    //             delete normalized.ingredients;
+    //         }
+    //     }
+
+    //     if (normalized.storeData && typeof normalized.storeData === 'object') {
+    //         const storeKeys = Object.keys(normalized.storeData);
+    //         const hasOnlyOneStore = storeKeys.length === 1;
+    //         for (const storeKey of storeKeys) {
+    //             const storeObj = normalized.storeData[storeKey];
+    //             if (storeObj && typeof storeObj === 'object') {
+    //                 if (hasOnlyOneStore) {
+    //                     delete storeObj.inStock;
+    //                 }
+
+    //                 if (this.isFalse(storeObj?.multipromo)) {
+    //                     delete storeObj.multipromo;
+    //                 } else if (this.isEmpty(storeObj.multipromo)) {
+    //                     if (normalized.multipromo === undefined) {
+    //                         normalized.multipromo = storeObj.multipromo;
+    //                         delete storeObj.multipromo;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.price) || this.isFalse(storeObj?.price)) {
+    //                     delete storeObj.price;
+    //                 } else {
+    //                     if (normalized.price === undefined) {
+    //                         normalized.price = storeObj.price;
+    //                         delete storeObj.price;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.multiPromoPrice) || this.isFalse(storeObj?.multiPromoPrice)) {
+    //                     delete storeObj.multiPromoPrice;
+    //                 } else {
+    //                     if (normalized.multiPromoPrice === undefined) {
+    //                         normalized.multiPromoPrice = storeObj.multiPromoPrice;
+    //                         delete storeObj.multiPromoPrice;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.unitsOfMeasurePrice) || this.isFalse(storeObj?.unitsOfMeasurePrice)) {
+    //                     delete storeObj.unitsOfMeasurePrice;
+    //                 } else {
+    //                     if (normalized.unitsOfMeasurePrice === undefined) {
+    //                         normalized.unitsOfMeasurePrice = storeObj.unitsOfMeasurePrice;
+    //                         delete storeObj.unitsOfMeasurePrice;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.unitsOfMeasurePriceUnit) || this.isFalse(storeObj?.unitsOfMeasurePriceUnit) || storeObj.unitsOfMeasurePriceUnit === normalized.unitOfMeasurePriceUnits) {
+    //                     delete storeObj.unitsOfMeasurePriceUnit;
+    //                 } else {
+    //                     if (normalized.unitsOfMeasurePriceUnit === undefined) {
+    //                         normalized.unitsOfMeasurePriceUnit = storeObj.unitsOfMeasurePriceUnit;
+    //                         delete storeObj.unitsOfMeasurePriceUnit;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.unitsOfMeasureOfferPrice) || this.isFalse(storeObj?.unitsOfMeasureOfferPrice)) {
+    //                     delete storeObj.unitsOfMeasureOfferPrice;
+    //                 } else {
+    //                     if (normalized.unitsOfMeasureOfferPrice === undefined) {
+    //                         normalized.unitsOfMeasureOfferPrice = storeObj.unitsOfMeasureOfferPrice;
+    //                         delete storeObj.unitsOfMeasureOfferPrice;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.offerDescription) || this.isFalse(storeObj?.offerDescription)) {
+    //                     delete storeObj.offerDescription;
+    //                 } else {
+    //                     if (normalized.offerDescription === undefined) {
+    //                         normalized.offerDescription = storeObj.offerDescription;
+    //                         delete storeObj.offerDescription;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.beforePrice) || this.isFalse(storeObj?.beforePrice)) {
+    //                     delete storeObj.beforePrice;
+    //                 } else {
+    //                     if (normalized.beforePrice === undefined) {
+    //                         normalized.beforePrice = storeObj.beforePrice;
+    //                         delete storeObj.beforePrice;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.offerCount) || this.isFalse(storeObj?.offerCount)) {
+    //                     delete storeObj.offerCount;
+    //                 } else {
+    //                     if (normalized.offerCount === undefined) {
+    //                         normalized.offerCount = storeObj.offerCount;
+    //                         delete storeObj.offerCount;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.unitsOfMeasureShowPrice) || this.isFalse(storeObj?.unitsOfMeasureShowPrice)) {
+    //                     delete storeObj.unitsOfMeasureShowPrice;
+    //                 } else {
+    //                     if (normalized.unitsOfMeasureShowPrice === undefined) {
+    //                         normalized.unitsOfMeasureShowPrice = storeObj.unitsOfMeasureShowPrice;
+    //                         delete storeObj.unitsOfMeasureShowPrice;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.offerFrom) || this.isFalse(storeObj?.offerFrom)) {
+    //                     delete storeObj.offerFrom;
+    //                 } else {
+    //                     if (normalized.offerFrom === undefined) {
+    //                         normalized.offerFrom = storeObj.offerFrom;
+    //                         delete storeObj.offerFrom;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.offerUntil) || this.isFalse(storeObj?.offerUntil)) {
+    //                     delete storeObj.offerUntil;
+    //                 } else {
+    //                     if (normalized.offerUntil === undefined) {
+    //                         normalized.offerUntil = storeObj.offerUntil;
+    //                         delete storeObj.offerUntil;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.multipromo) || this.isFalse(storeObj?.multipromo)) {
+    //                     delete storeObj.multipromo;
+    //                 } else {
+    //                     if (normalized.multipromo === undefined) {
+    //                         normalized.multipromo = storeObj.multipromo;
+    //                         delete storeObj.multipromo;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.offerMax) || this.isFalse(storeObj?.offerMax)) {
+    //                     delete storeObj.offerMax;
+    //                 } else {
+    //                     if (normalized.offerMax === undefined) {
+    //                         normalized.offerMax = storeObj.offerMax;
+    //                         delete storeObj.offerMax;
+    //                     }
+    //                 }
+
+    //                 if (this.isEmpty(storeObj?.offerMaxDescription) || this.isFalse(storeObj?.offerMaxDescription)) {
+    //                     delete storeObj.offerMaxDescription;
+    //                 } else {
+    //                     if (normalized.offerMaxDescription === undefined) {
+    //                         normalized.offerMaxDescription = storeObj.offerMaxDescription;
+    //                         delete storeObj.offerMaxDescription;
+    //                     }
+    //                 }
+
+    //                 // If store object is now empty, delete it
+    //                 if (this.isObjectEmpty(storeObj)) {
+    //                     delete normalized.storeData[storeKey];
+    //                 }
+    //             }
+    //         }
+
+    //         // If storeData is now empty, delete it
+    //         if (this.isObjectEmpty(normalized.storeData)) {
+    //             delete normalized.storeData;
+    //         }
+    //     }
+
+    //     if (normalized.gtin && Array.isArray(normalized.gtin)) {
+    //         const stringGtins = new Set<string>();
+    //         for (const gtin of normalized.gtin) {
+    //             if (gtin !== null && gtin !== undefined) {
+    //                 stringGtins.add(String(gtin));
+    //             }
+    //         }
+    //         normalized.gtin = Array.from(stringGtins);
+    //         if (normalized.gtin.length === 0) {
+    //             delete normalized.gtin;
+    //         }
+    //     }
+
+    //     if (normalized?.unitsOfMeasurePrice === normalized?.unitsOfMeasureOfferPrice) {
+    //         delete normalized.unitsOfMeasureOfferPrice;
+    //     }
+
+    //     if (normalized?.unitsOfMeasurePrice === normalized?.unitsOfMeasureShowPrice) {
+    //         delete normalized.unitsOfMeasureShowPrice;
+    //     }
+
+    //     if (normalized?.unitsOfMeasureOfferPrice === normalized?.unitsOfMeasureShowPrice) {
+    //         delete normalized.unitsOfMeasureShowPrice;
+    //     }
+
+    //     if (normalized?.price === normalized?.unitsOfMeasurePrice) {
+    //         delete normalized.unitsOfMeasurePrice;
+    //     }
+
+    //     if (normalized?.price === normalized?.sales_price) {
+    //         delete normalized.sales_price;
+    //     }
+
+    //     if (normalized?.offerDescription === normalized?.multibuy_offer_description) {
+    //         delete normalized.multibuy_offer_description;
+    //     }
+
+    //     if (normalized?.cpOfferId || normalized?.isInCurrentLeaflet || normalized?.offerDescription || normalized?.cpDiscount || normalized?.cpOffer || normalized?.cpOfferAmount || normalized?.cpOfferFromDate || normalized?.cpOfferPrice || normalized?.cpOfferTitle || normalized?.cpOfferToDate || normalized?.cpOriginalPrice || normalized?.cpPercentDiscount || normalized?.multiPromoPrice || normalized?.multipromo || normalized?.offerMaxDescription || normalized?.leafletTitle || normalized?.multibuy_offer_description || normalized?.beforePrice || normalized?.offerFrom || normalized?.offerUntil || normalized?.is_multibuy || normalized?.offerMax) {
+    //         if (this.isEmpty(normalized?.promotion)) {
+    //             normalized['promotion'] = {};
+    //         }
+    //         if (normalized?.cpOfferId) {
+    //             normalized['promotion']['cpOfferId'] = normalized.cpOfferId;
+    //             delete normalized.cpOfferId;
+    //         }
+    //         if (normalized?.isInCurrentLeaflet) {
+    //             normalized['promotion']['isInCurrentLeaflet'] = normalized.isInCurrentLeaflet;
+    //             delete normalized.isInCurrentLeaflet;
+    //         }
+    //         if (normalized?.offerDescription) {
+    //             normalized['promotion']['offerDescription'] = normalized.offerDescription;
+    //             delete normalized.offerDescription;
+    //         }
+    //         if (normalized?.cpDiscount) {
+    //             normalized['promotion']['cpDiscount'] = normalized.cpDiscount;
+    //             delete normalized.cpDiscount;
+    //         }
+    //         if (normalized?.cpOffer) {
+    //             normalized['promotion']['cpOffer'] = normalized.cpOffer;
+    //             delete normalized.cpOffer;
+    //         }
+    //         if (normalized?.cpOfferAmount) {
+    //             normalized['promotion']['cpOfferAmount'] = normalized.cpOfferAmount;
+    //             delete normalized.cpOfferAmount;
+    //         }
+    //         if (normalized?.cpOfferFromDate) {
+    //             normalized['promotion']['cpOfferFromDate'] = normalized.cpOfferFromDate;
+    //             delete normalized.cpOfferFromDate;
+    //         }
+    //         if (normalized?.cpOfferPrice) {
+    //             normalized['promotion']['cpOfferPrice'] = normalized.cpOfferPrice;
+    //             delete normalized.cpOfferPrice;
+    //         }
+    //         if (normalized?.cpOfferTitle) {
+    //             normalized['promotion']['cpOfferTitle'] = normalized.cpOfferTitle.trim();
+    //             delete normalized.cpOfferTitle;
+    //         }
+    //         if (normalized?.cpOfferToDate) {
+    //             normalized['promotion']['cpOfferToDate'] = normalized.cpOfferToDate;
+    //             delete normalized.cpOfferToDate;
+    //         }
+    //         if (normalized?.cpOriginalPrice) {
+    //             normalized['promotion']['offerDescription'] = normalized.cpOriginalPrice;
+    //             delete normalized.cpOriginalPrice;
+    //         }
+    //         if (normalized?.cpPercentDiscount) {
+    //             normalized['promotion']['cpPercentDiscount'] = normalized.cpPercentDiscount;
+    //             delete normalized.cpPercentDiscount;
+    //         }
+    //         if (normalized?.multiPromoPrice) {
+    //             normalized['promotion']['multiPromoPrice'] = normalized.multiPromoPrice;
+    //             delete normalized.multiPromoPrice;
+    //         }
+    //         if (normalized?.leafletTitle) {
+    //             normalized['promotion']['leafletTitle'] = normalized.leafletTitle;
+    //             delete normalized.leafletTitle;
+    //         }
+    //         if (normalized?.multibuy_offer_description) {
+    //             normalized['promotion']['multibuy_offer_description'] = normalized.multibuy_offer_description;
+    //             delete normalized.multibuy_offer_description;
+    //         }
+    //         if (normalized?.beforePrice) {
+    //             normalized['promotion']['beforePrice'] = normalized.beforePrice;
+    //             delete normalized.beforePrice;
+    //         }
+    //         if (normalized?.offerFrom) {
+    //             normalized['promotion']['offerFrom'] = normalized.offerFrom;
+    //             delete normalized.offerFrom;
+    //         }
+    //         if (normalized?.offerUntil) {
+    //             normalized['promotion']['offerUntil'] = normalized.offerUntil;
+    //             delete normalized.offerUntil;
+    //         }
+    //         if (normalized?.multipromo) {
+    //             normalized['promotion']['multipromo'] = normalized.multipromo;
+    //             delete normalized.multipromo;
+    //         }
+    //         if (normalized?.is_multibuy) {
+    //             normalized['promotion']['is_multibuy'] = normalized.is_multibuy;
+    //             delete normalized.is_multibuy;
+    //         }
+    //         if (normalized?.multipromo) {
+    //             normalized['promotion']['multipromo'] = normalized.multipromo;
+    //             delete normalized.multipromo;
+    //         }
+    //         if (normalized?.offerMax) {
+    //             normalized['promotion']['offerMax'] = normalized.offerMax;
+    //             delete normalized.offerMax;
+    //         }
+    //         if (normalized?.offerMaxDescription) {
+    //             normalized['promotion']['offerMaxDescription'] = normalized.offerMaxDescription;
+    //             delete normalized.offerMaxDescription;
+    //         }
+    //         if (normalized?.offerCount) {
+    //             normalized['promotion']['offerCount'] = normalized.offerCount;
+    //             delete normalized.offerCount;
+    //         }
+    //     }
+
+    //     if (normalized?.name === normalized?.itemDescription || normalized?.productName === normalized?.itemDescription || normalized?.productType === normalized?.itemDescription) {
+    //         delete normalized.itemDescription;
+    //     }
+
+    //     if (normalized?.article) {
+    //         normalized['articleIds'] = normalized?.article;
+    //         delete normalized.article;
+    //     }
+
+    //     if (normalized?.gtin) {
+    //         normalized['barcodes'] = normalized?.gtin;
+    //         delete normalized.gtin;
+    //     }
+
+    //     if (normalized?.units) {
+    //         normalized['units'] = { units: normalized['units'] };
+    //     } else if (normalized?.unitOfMeasurePriceUnits || normalized?.unitsOfMeasure || normalized?.unitsOfMeasureOfferPrice || normalized?.unitsOfMeasurePrice || normalized?.netcontent || normalized?.netAmount) {
+    //         normalized['units'] = {};
+    //     }
+
+    //     if (normalized?.unitsOfMeasure) {
+    //         normalized['units']['unitsOfMeasure'] = normalized.unitsOfMeasure;
+    //         delete normalized.unitsOfMeasure;
+    //     }
+    //     if (normalized?.unitOfMeasurePriceUnits) {
+    //         normalized['units']['unitOfMeasurePriceUnits'] = normalized.unitOfMeasurePriceUnits;
+    //         delete normalized.unitOfMeasurePriceUnits;
+    //     }
+    //     if (normalized?.unitsOfMeasureOfferPrice) {
+    //         normalized['units']['unitsOfMeasureOfferPrice'] = normalized.unitsOfMeasureOfferPrice;
+    //         delete normalized.unitsOfMeasureOfferPrice;
+    //     }
+    //     if (normalized?.unitsOfMeasurePrice) {
+    //         normalized['units']['unitsOfMeasurePrice'] = normalized.unitsOfMeasurePrice;
+    //         delete normalized.unitsOfMeasurePrice;
+    //     }
+    //     if (normalized?.netcontent) {
+    //         normalized['units']['netcontent'] = normalized.netcontent;
+    //         delete normalized.netcontent;
+    //     }
+    //     if (normalized?.netAmount) {
+    //         normalized['units']['netAmount'] = normalized.netAmount;
+    //         delete normalized.netAmount;
+    //     }
+
+    //     let product = this.cleanObject(normalized)
+    //     product["hash"] = this.getHashValueOfObject(product);
+    //     return product;
+    // }

@@ -1,0 +1,28 @@
+{
+  "name": "recover_db_from_invalid_encoding",
+  "version": "3.0.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node app/index.js"
+  },
+  "dependencies": {
+    "bson": "^7.2.0",
+    "fast-clean": "^1.5.3",
+    "mongodb": "^7.2.0",
+    "node-object-hash": "^3.1.1",
+    "sort-keys-recursive": "^2.1.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BarisFalkCoskun/ProductScrapers.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/BarisFalkCoskun/ProductScrapers/issues"
+  },
+  "homepage": "https://github.com/BarisFalkCoskun/ProductScrapers#readme",
+  "description": ""
+}
