@@ -378,13 +378,114 @@ class BaseProductDatabase {
 
     let objects = [];
     for (let doc of docs) {
+      // delete doc._id;
+      // delete doc.hash;
+      // delete doc.ageCode
+      // delete doc.hasimage
+      // delete doc.hierarchy_node
+      // delete doc.targetGBB
+      // delete doc.targetOffer
+      // delete doc.targetOrganic
+      // delete doc.targetHealthClaim
+      // delete doc.targetGBB
+      // delete doc.targetEnvironmental
+      // delete doc.targetCSR
+      // delete doc.productImages
+      // delete doc.originalHash
+      // delete doc.hierarchy_node
+
+      // if (doc?.id && doc?.id === 39411 || doc?.id === "39411") {
+      //   delete doc.id;
+      // }
+
+      // if (this.isFalse(doc?.cpDiscount)) {
+      //   delete doc.cpDiscount
+      // }
+      // if (this.isFalse(doc?.cpOffer)) {
+      //   delete doc.cpOffer
+      // }
+      // if (this.isFalse(doc?.cpOfferAmount)) {
+      //   delete doc.cpOfferAmount
+      // }
+      // if (this.isFalse(doc?.cpOfferPrice)) {
+      //   delete doc.cpOfferPrice
+      // }
+      // if (this.isFalse(doc?.cpOriginalPrice)) {
+      //   delete doc.cpOriginalPrice
+      // }
+      // if (this.isFalse(doc?.cpPercentDiscount)) {
+      //   delete doc.cpPercentDiscount
+      // }
+      // if (this.isFalse(doc?.isInCurrentLeaflet)) {
+      //   delete doc.isInCurrentLeaflet
+      // }
+      // if (this.isFalse(doc?.targetOffer)) {
+      //   delete doc.targetOffer
+      // }
+      // if (this.isFalse(doc?.cpOfferId)) {
+      //   delete doc.cpOfferId
+      // }
+      // if (this.isFalse(doc?.isInOffer)) {
+      //   delete doc.isInOffer
+      // }
+
+      
+      // if (doc?.name && doc?.description && doc?.name === doc?.description) {
+      //   delete doc.description
+      // }
+      // if (doc?.unitsOfMeasure && doc?.unitOfMeasurePriceUnits && doc?.unitsOfMeasure === doc?.unitOfMeasurePriceUnits) {
+      //   delete doc.unitOfMeasurePriceUnits
+      // }
+      // if (doc?.categories && doc?.consumerFacingHierarchy && JSON.stringify(doc.categories) === JSON.stringify(doc.consumerFacingHierarchy)) {
+      //   delete doc.consumerFacingHierarchy
+      // }
+
+      // if (doc?.searchHierarchy && !doc?.searchHierachy) {
+      //   doc.searchHierachy = doc.searchHierarchy
+      //   delete doc.searchHierarchy
+      // }
+
+      // if (doc?.objectID && !doc?.id) {
+      //   doc.id = doc.objectID
+      //   delete doc.objectID
+      // }
+
+      // if (Array.isArray(doc?.infos)) {
+      //   for (const info of doc.infos) {
+      //     if (Array.isArray(info?.items)) {
+      //       for (const item of info.items) {
+      //         delete item?.type
+      //       }
+      //     }
+      //   }
+      // }
+
+      // if (doc?.pricing) {
+      //   if (this.isFalse(doc.pricing.price)) {
+      //     delete doc.pricing.price
+      //   }
+      //   if (this.isFalse(doc.pricing.unitsOfMeasurePrice)) {
+      //     delete doc.pricing.unitsOfMeasurePrice
+      //   }
+      // }
+
+      // if (doc?.units) {
+      //   if (this.isFalse(doc.units.units)) {
+      //     delete doc.units.units
+      //   }
+
+      //   if (doc?.units?.unitsOfMeasurePriceUnit && doc?.units?.unitsOfMeasure && doc?.units?.unitsOfMeasurePriceUnit === doc?.units?.unitsOfMeasure) {
+      //     delete doc.units.unitsOfMeasurePriceUnit
+      //   }
+      // }
+
       let prod = doc;
       
-      // prod["hash"] = await this.getHashValueOfObject(prod);
       // prod = this.parseStringifiedJSON(prod);
       // prod = this.normalizeWhitespace(prod);
       // prod = await cleaner.clean(prod, this.cleanerOptions);
       // prod = await sortKeysRecursive(prod);
+      // prod["hash"] = await this.getHashValueOfObject(prod);
 
       objects.push(prod);
     }

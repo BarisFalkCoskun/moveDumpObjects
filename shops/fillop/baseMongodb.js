@@ -453,27 +453,6 @@ class BaseProductDatabase {
       if (this.isFalse(doc?.salesUnit)) {
         delete doc.salesUnit
       }
-      if (this.isFalse(doc?.salesUnit)) {
-        delete doc.salesUnit
-      }
-      if (this.isFalse(doc?.salesUnit)) {
-        delete doc.salesUnit
-      }
-      if (this.isFalse(doc?.salesUnit)) {
-        delete doc.salesUnit
-      }
-      if (this.isFalse(doc?.salesUnit)) {
-        delete doc.salesUnit
-      }
-      if (this.isFalse(doc?.salesUnit)) {
-        delete doc.salesUnit
-      }
-      if (this.isFalse(doc?.salesUnit)) {
-        delete doc.salesUnit
-      }
-      if (this.isFalse(doc?.salesUnit)) {
-        delete doc.salesUnit
-      }
 
 
       if (doc?.searchHierarchy && !doc?.searchHierachy) {

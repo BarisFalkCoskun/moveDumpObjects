@@ -7,7 +7,7 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
   let ProductDatabase = useRawMongo ? RawProductDatabase : NormalProductDatabase;
   let sortByNewestFirst = false;
   let collNames = [
-    'products',
+    'products', 'ean'
   ]
 
   let dbOutputName;
@@ -20,7 +20,7 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
   }
 
   let query = {};
-  // query = { gtin: { $exists: true } }
+  query = { pricing: { $exists: true } }
   // query = { productImages: { $exists: true } }
   // query = { barcodes: { $exists: false } }
   // query = {
