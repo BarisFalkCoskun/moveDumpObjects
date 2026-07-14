@@ -2,10 +2,10 @@ import { ProductDatabase as RawProductDatabase } from "../db/rawMongodb.js";
 import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js";
 
 (async () => {
-  let dbName = "hjemmelevering";
+  let dbName = "netto";
   let useRawMongo = false;
   let ProductDatabase = useRawMongo ? RawProductDatabase : NormalProductDatabase;
-  let sortByNewestFirst = true;
+  let sortByNewestFirst = false;
   let collNames = [
     'products',
   ]
@@ -20,7 +20,7 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
   }
 
   let query = {};
-  // query = { concatenateSalesUnit: { $exists: true } }
+  // query = { gtin: { $exists: true } }
   // query = { productImages: { $exists: true } }
   // query = { barcodes: { $exists: false } }
   // query = {
@@ -413,7 +413,7 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
   for (let collName of collNames) {
     dbOutputName = collName + "v2";
     // dbOutputName = collName + "-barcodes";
-    // dbOutputName = "ean";
+    // dbOutputName = "nutritional";
 
     if (dbOutputName === collName) {
       console.log(`Source and destination collection are both "${collName}". Exiting.`);
