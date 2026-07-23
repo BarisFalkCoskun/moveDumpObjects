@@ -92,7 +92,7 @@ class BaseProductDatabase {
     if (this.isImagesCollection) {
       await this.collection2.createIndex(
         { hashedName: 1, hashedUrl: 1 },
-        { unique: true, sparse: true },
+        { unique: true, sparse: true }
       );
       return;
     }
@@ -100,10 +100,7 @@ class BaseProductDatabase {
     // await this.collection.createIndex({ hash: 1 }, { unique: true, sparse: true });
     // await this.collection.createIndex({ "$**": "text" }, { name: "TextIndex" });
 
-    await this.collection2.createIndex(
-      { hash: 1 },
-      { unique: true, sparse: true },
-    );
+    await this.collection2.createIndex({ hash: 1 }, { unique: true, sparse: true });
     // await this.collection2.createIndex({ "$**": "text" }, { name: "TextIndex" });
   }
 
@@ -143,7 +140,7 @@ class BaseProductDatabase {
           // even indices = text between newlines, odd = the newline itself
           i % 2 === 0
             ? // collapse non-newline whitespace runs, then trim edges
-              part.replace(/[^\S\n]+/g, " ").trim()
+            part.replace(/[^\S\n]+/g, " ").trim()
             : part,
         )
         .join("")
@@ -323,26 +320,25 @@ class BaseProductDatabase {
   static async insertAll(batchOrIds, docsArg) {
     const batch = Array.isArray(batchOrIds)
       ? {
-          ids: batchOrIds,
-          validIds: batchOrIds,
-          invalidIds: [],
-          invalidCount: 0,
-          docs: docsArg,
-        }
+        ids: batchOrIds,
+        validIds: batchOrIds,
+        invalidIds: [],
+        invalidCount: 0,
+        docs: docsArg,
+      }
       : {
-          ids: batchOrIds?.ids,
-          validIds: batchOrIds?.validIds,
-          invalidIds: batchOrIds?.invalidIds,
-          invalidCount: batchOrIds?.invalidCount,
-          docs: batchOrIds?.docs,
-        };
+        ids: batchOrIds?.ids,
+        validIds: batchOrIds?.validIds,
+        invalidIds: batchOrIds?.invalidIds,
+        invalidCount: batchOrIds?.invalidCount,
+        docs: batchOrIds?.docs,
+      };
     const ids = Array.isArray(batch.ids) ? batch.ids : [];
     const invalidIds = Array.isArray(batch.invalidIds) ? batch.invalidIds : [];
     const invalidIdKeys = new Set(invalidIds.map((id) => String(id)));
-    const validIds =
-      Array.isArray(batch.validIds) && batch.validIds.length > 0
-        ? batch.validIds
-        : ids.filter((id) => !invalidIdKeys.has(String(id)));
+    const validIds = Array.isArray(batch.validIds) && batch.validIds.length > 0
+      ? batch.validIds
+      : ids.filter((id) => !invalidIdKeys.has(String(id)));
     const invalidCount = batch.invalidCount ?? invalidIds.length;
     const docs = batch.docs;
     const metrics = {
@@ -364,15 +360,11 @@ class BaseProductDatabase {
 
     if (docs.length === 0 && ids.length > 0) {
       const invalidTotal = invalidCount || ids.length;
-      console.log(
-        `insert skipped: all ${invalidTotal} docs invalid replacement-char docs`,
-      );
+      console.log(`insert skipped: all ${invalidTotal} docs invalid replacement-char docs`);
       const deleteStartedAt = Date.now();
       const invalidDeleteIds = invalidIds.length > 0 ? invalidIds : ids;
       // Safe by policy: replacement-char docs are intentionally purged, not migrated.
-      const deletions = await this.collection.deleteMany({
-        _id: { $in: invalidDeleteIds },
-      });
+      const deletions = await this.collection.deleteMany({ _id: { $in: invalidDeleteIds } });
       metrics.t_delete_ms = Date.now() - deleteStartedAt;
       metrics.deletedCount = deletions.deletedCount;
       metrics.invalidDeleted = deletions.deletedCount;
@@ -386,17 +378,35 @@ class BaseProductDatabase {
 
     let objects = [];
     for (let doc of docs) {
-      // if (Array.isArray(doc.images)) {
-      //   doc.images = BaseProductDatabase.removeWebArchiveUrls(doc.images);
-      // }
+      delete doc.pricing
+      delete doc.search_words
+      delete doc.sorting
+      delete doc.entering_date
+      delete doc.hash
+      delete doc.originalHash
+      delete doc._id
+      delete doc.category_id
+      delete doc.department_id
+      delete doc.modified_at
+      delete doc._highlightResult;
+      delete doc.assortment_code;
+      delete doc.formValue;
+      delete doc.referer;
+      delete doc.count;
+      delete doc.extra
+
+      if (doc?.page_id && this.isNull(doc?.id)) {
+        doc.id = doc.page_id + "";
+        delete doc.page_id;
+      }
 
       let prod = doc;
-
-      // prod["hash"] = await this.getHashValueOfObject(prod);
-      // prod = this.parseStringifiedJSON(prod);
+      
+      prod = this.parseStringifiedJSON(prod);
       // prod = this.normalizeWhitespace(prod);
-      // prod = await cleaner.clean(prod, this.cleanerOptions);
+      prod = await cleaner.clean(prod, this.cleanerOptions);
       // prod = await sortKeysRecursive(prod);
+      prod["hash"] = await this.getHashValueOfObject(prod);
 
       objects.push(prod);
     }
@@ -431,8 +441,9 @@ class BaseProductDatabase {
       }
       return error?.result?.getWriteConcernError?.();
     };
-    const normalizeWriteError = (writeError) =>
-      Array.isArray(writeError) ? writeError[1] : writeError;
+    const normalizeWriteError = (writeError) => (
+      Array.isArray(writeError) ? writeError[1] : writeError
+    );
     const getWriteErrorCode = (writeError) => {
       const error = normalizeWriteError(writeError);
       const json = error?.toJSON?.();
@@ -461,11 +472,7 @@ class BaseProductDatabase {
         return { checked: false, existingCount: 0, expectedCount: 0 };
       }
 
-      const hashes = [
-        ...new Set(
-          candidates.map((candidate) => candidate?.hash).filter(Boolean),
-        ),
-      ];
+      const hashes = [...new Set(candidates.map((candidate) => candidate?.hash).filter(Boolean))];
       if (hashes.length === 0) {
         return { checked: false, existingCount: 0, expectedCount: 0 };
       }
@@ -500,16 +507,12 @@ class BaseProductDatabase {
         constructorName: error?.constructor?.name,
         isArray: Array.isArray(error),
         isBuffer: Buffer.isBuffer(error),
-        ownKeys:
-          error && typeof error === "object"
-            ? Reflect.ownKeys(error).map((key) => String(key))
-            : [],
-        prototypeKeys:
-          error && typeof error === "object"
-            ? Reflect.ownKeys(Object.getPrototypeOf(error) ?? {}).map((key) =>
-                String(key),
-              )
-            : [],
+        ownKeys: error && typeof error === "object"
+          ? Reflect.ownKeys(error).map((key) => String(key))
+          : [],
+        prototypeKeys: error && typeof error === "object"
+          ? Reflect.ownKeys(Object.getPrototypeOf(error) ?? {}).map((key) => String(key))
+          : [],
         code: error?.code,
         errCode: error?.err?.code,
         errorResponseCode: error?.errorResponse?.code,
@@ -532,10 +535,9 @@ class BaseProductDatabase {
             errmsg: decoded?.errmsg,
             message: decoded?.message,
             index: decoded?.index,
-            opKeys:
-              decoded?.op && typeof decoded.op === "object"
-                ? Object.keys(decoded.op)
-                : undefined,
+            opKeys: decoded?.op && typeof decoded.op === "object"
+              ? Object.keys(decoded.op)
+              : undefined,
           };
         } catch (decodeError) {
           summary.decodeError = decodeError?.message;
@@ -547,9 +549,7 @@ class BaseProductDatabase {
 
     const insertStartedAt = Date.now();
     try {
-      const insertions = await this.collection2.insertMany(objects, {
-        ordered: false,
-      });
+      const insertions = await this.collection2.insertMany(objects, { ordered: false });
       metrics.insertedCount = getInsertedCount(insertions);
     } catch (error) {
       metrics.insertedCount = getInsertedCount(error);
@@ -558,50 +558,33 @@ class BaseProductDatabase {
         metrics.safe = false;
         metrics.otherErrorCount = 1;
         metrics.t_insert_ms = Date.now() - insertStartedAt;
-        console.log(
-          "[delete skipped] Bulk insert failed before source delete. Source documents were kept.",
-          {
-            name: error?.name,
-            message: error?.message,
-          },
-        );
+        console.log("[delete skipped] Bulk insert failed before source delete. Source documents were kept.", {
+          name: error?.name,
+          message: error?.message,
+        });
         return metrics;
       }
 
       const writeErrors = getWriteErrors(error);
-      metrics.duplicateCount = writeErrors.filter(
-        (writeError) => getWriteErrorCode(writeError) === 11000,
-      ).length;
+      metrics.duplicateCount = writeErrors.filter((writeError) => getWriteErrorCode(writeError) === 11000).length;
       metrics.otherErrorCount = writeErrors.length - metrics.duplicateCount;
       metrics.writeConcernFailed = getWriteConcernError(error) !== undefined;
-      metrics.safe =
+      metrics.safe = (
         writeErrors.length > 0 &&
         metrics.otherErrorCount === 0 &&
-        !metrics.writeConcernFailed;
-
-      const hasUnclassifiedWriteErrors = writeErrors.some(
-        (writeError) => getWriteErrorCode(writeError) === undefined,
+        !metrics.writeConcernFailed
       );
-      let existingHashCheck = {
-        checked: false,
-        existingCount: 0,
-        expectedCount: 0,
-      };
-      if (
-        !metrics.safe &&
-        !metrics.writeConcernFailed &&
-        hasUnclassifiedWriteErrors
-      ) {
+
+      const hasUnclassifiedWriteErrors = writeErrors.some((writeError) => getWriteErrorCode(writeError) === undefined);
+      let existingHashCheck = { checked: false, existingCount: 0, expectedCount: 0 };
+      if (!metrics.safe && !metrics.writeConcernFailed && hasUnclassifiedWriteErrors) {
         existingHashCheck = await getExistingHashCount(objects);
-        if (
-          existingHashCheck.checked &&
-          existingHashCheck.existingCount === existingHashCheck.expectedCount
-        ) {
+        if (existingHashCheck.checked && existingHashCheck.existingCount === existingHashCheck.expectedCount) {
           metrics.duplicateCount = writeErrors.length;
           metrics.otherErrorCount = 0;
           metrics.safe = true;
           console.log(
-            `[duplicates ok] ${metrics.duplicateCount} cleaned objects already existed in target collection by hash fallback`,
+            `[duplicates ok] ${metrics.duplicateCount} cleaned objects already existed in target collection by hash fallback`
           );
         }
       }
@@ -609,26 +592,21 @@ class BaseProductDatabase {
       if (!metrics.safe) {
         metrics.t_insert_ms = Date.now() - insertStartedAt;
         this.totalInserted += metrics.insertedCount;
-        console.log(
-          "[delete skipped] Bulk insert had non-duplicate or write-concern errors. Source documents were kept.",
-          {
-            insertedCount: metrics.insertedCount,
-            duplicateCount: metrics.duplicateCount,
-            otherErrorCount: metrics.otherErrorCount,
-            writeConcernFailed: metrics.writeConcernFailed,
-            writeErrorCount: writeErrors.length,
-            firstWriteErrorCode: getWriteErrorCode(writeErrors[0]),
-            firstWriteErrorMessage: getWriteErrorMessage(writeErrors[0]),
-            firstWriteErrorShape: summarizeWriteErrorShape(writeErrors[0]),
-            existingHashCheck,
-          },
-        );
+        console.log("[delete skipped] Bulk insert had non-duplicate or write-concern errors. Source documents were kept.", {
+          insertedCount: metrics.insertedCount,
+          duplicateCount: metrics.duplicateCount,
+          otherErrorCount: metrics.otherErrorCount,
+          writeConcernFailed: metrics.writeConcernFailed,
+          writeErrorCount: writeErrors.length,
+          firstWriteErrorCode: getWriteErrorCode(writeErrors[0]),
+          firstWriteErrorMessage: getWriteErrorMessage(writeErrors[0]),
+          firstWriteErrorShape: summarizeWriteErrorShape(writeErrors[0]),
+          existingHashCheck,
+        });
         return metrics;
       }
 
-      console.log(
-        `[duplicates ok] ${metrics.duplicateCount} cleaned objects already existed in target collection`,
-      );
+      console.log(`[duplicates ok] ${metrics.duplicateCount} cleaned objects already existed in target collection`);
     }
     metrics.t_insert_ms = Date.now() - insertStartedAt;
 
@@ -637,24 +615,17 @@ class BaseProductDatabase {
 
     const deleteStartedAt = Date.now();
     if (validIds.length > 0) {
-      const deletions = await this.collection.deleteMany({
-        _id: { $in: validIds },
-      });
+      const deletions = await this.collection.deleteMany({ _id: { $in: validIds } });
       metrics.validDeleted = deletions.deletedCount;
       metrics.deletedCount += deletions.deletedCount;
       console.log("Deleted valid source documents:", deletions.deletedCount);
     }
 
     if (invalidIds.length > 0) {
-      const invalidDeletions = await this.collection.deleteMany({
-        _id: { $in: invalidIds },
-      });
+      const invalidDeletions = await this.collection.deleteMany({ _id: { $in: invalidIds } });
       metrics.invalidDeleted = invalidDeletions.deletedCount;
       metrics.deletedCount += invalidDeletions.deletedCount;
-      console.log(
-        "deleted invalid source docs:",
-        invalidDeletions.deletedCount,
-      );
+      console.log("deleted invalid source docs:", invalidDeletions.deletedCount);
     }
     metrics.t_delete_ms = Date.now() - deleteStartedAt;
     return metrics;
@@ -665,7 +636,7 @@ class BaseProductDatabase {
     if (this.collection && this.collection2) {
       const count = await this.collection.estimatedDocumentCount();
       console.log(
-        `Original collection ${this.currentName} estimated count: ${count}`,
+        `Original collection ${this.currentName} estimated count: ${count}`
       );
       const count2 = await this.collection.countDocuments();
       console.log(`Original collection ${this.currentName} count: ${count2}`);
@@ -678,7 +649,7 @@ class BaseProductDatabase {
         if (newCollName.endsWith("0")) {
           const renamedCollName = newCollName.slice(0, -1);
           console.log(
-            `Renaming collection ${newCollName} to ${renamedCollName}`,
+            `Renaming collection ${newCollName} to ${renamedCollName}`
           );
           await this.collection2.rename(renamedCollName);
         }
@@ -703,13 +674,13 @@ class BaseProductDatabase {
     if (uniqueCodes.size > 0) {
       console.log(
         "Unique codes found in large infos arrays:",
-        Array.from(uniqueCodes),
+        Array.from(uniqueCodes)
       );
     }
 
     console.log("Database closed!");
     console.log(
-      `${this.totalInserted} documents inserted from ${this.currentName} to ${this.collName} in ${this.dbName}`,
+      `${this.totalInserted} documents inserted from ${this.currentName} to ${this.collName} in ${this.dbName}`
     );
     this.totalInserted = 0;
     return;

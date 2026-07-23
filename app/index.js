@@ -2,13 +2,13 @@ import { ProductDatabase as RawProductDatabase } from "../db/rawMongodb.js";
 import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js";
 
 (async () => {
-  let dbName = "netto";
+  let dbName = "bilka";
   let useRawMongo = false;
-  let ProductDatabase = useRawMongo ? RawProductDatabase : NormalProductDatabase;
-  let sortByNewestFirst = false;
-  let collNames = [
-    'products', 'ean'
-  ]
+  let ProductDatabase = useRawMongo
+    ? RawProductDatabase
+    : NormalProductDatabase;
+  let sortByNewestFirst = true;
+  let collNames = ["products"];
 
   let dbOutputName;
 
@@ -20,7 +20,13 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
   }
 
   let query = {};
-  query = { pricing: { $exists: true } }
+  // query = { images: { $regex: "web\\.archive\\.org/web/\\d+/" } }
+  // query = { images: { '$regex': '(^|[./])iposeninfra\\.com([/?#]|$)' } }
+  // query = { images: { '$regex': '(^|[./])imgix\\.net([/?#]|$)' } }
+  // query = { images: { '$regex': '(^|[./])sallinggroup\\.com([/?#]|$)' } }
+  // query = { last_syncronized: { $exists: true } }
+
+  // query = { pricing: { $exists: true } }
   // query = { productImages: { $exists: true } }
   // query = { barcodes: { $exists: false } }
   // query = {
@@ -412,11 +418,13 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
 
   for (let collName of collNames) {
     dbOutputName = collName + "v2";
-    // dbOutputName = collName + "-barcodes";
-    // dbOutputName = "nutritional";
+    // dbOutputName = collName + "-archive";
+    // dbOutputName = "barcodes";
 
     if (dbOutputName === collName) {
-      console.log(`Source and destination collection are both "${collName}". Exiting.`);
+      console.log(
+        `Source and destination collection are both "${collName}". Exiting.`,
+      );
       process.exit(1);
     }
 

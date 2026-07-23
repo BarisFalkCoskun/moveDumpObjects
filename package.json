@@ -1,6 +1,6 @@
 {
-  "name": "recover_db_from_invalid_encoding",
-  "version": "3.0.0",
+  "name": "move-dump-objects",
+  "version": "4.0.0",
   "main": "index.js",
   "license": "UNLICENSED",
   "type": "module",
@@ -11,20 +11,20 @@
     "test": "node --test"
   },
   "dependencies": {
-    "bson": "^7.2.0",
+    "bson": "^7.3.1",
     "fast-clean": "^1.5.3",
-    "mongodb": "^7.2.0",
-    "node-object-hash": "3.1.1",
+    "mongodb": "^7.5.0",
+    "node-object-hash": "^3.1.1",
     "sort-keys-recursive": "^2.1.10"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BarisFalkCoskun/ProductScrapers.git"
+    "url": "git+https://github.com/BarisFalkCoskun/moveDumpObjects.git"
   },
   "author": "",
   "bugs": {
-    "url": "https://github.com/BarisFalkCoskun/ProductScrapers/issues"
+    "url": "https://github.com/BarisFalkCoskun/moveDumpObjects/issues"
   },
-  "homepage": "https://github.com/BarisFalkCoskun/ProductScrapers#readme",
+  "homepage": "https://github.com/BarisFalkCoskun/moveDumpObjects#readme",
   "description": ""
 }
