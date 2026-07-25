@@ -2,13 +2,16 @@ import { ProductDatabase as RawProductDatabase } from "../db/rawMongodb.js";
 import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js";
 
 (async () => {
-  let dbName = "bilka";
+  let dbName = "bilkatogo";
   let useRawMongo = false;
   let ProductDatabase = useRawMongo
     ? RawProductDatabase
     : NormalProductDatabase;
-  let sortByNewestFirst = true;
-  let collNames = ["products"];
+  let sortByNewestFirst = false; // false is much faster than true
+  let collNames = [
+    "products",
+    "ean"
+  ];
 
   let dbOutputName;
 
@@ -26,7 +29,7 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
   // query = { images: { '$regex': '(^|[./])sallinggroup\\.com([/?#]|$)' } }
   // query = { last_syncronized: { $exists: true } }
 
-  // query = { pricing: { $exists: true } }
+  query = { gtin: { $exists: true } }
   // query = { productImages: { $exists: true } }
   // query = { barcodes: { $exists: false } }
   // query = {
@@ -419,7 +422,7 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
   for (let collName of collNames) {
     dbOutputName = collName + "v2";
     // dbOutputName = collName + "-archive";
-    // dbOutputName = "barcodes";
+    // dbOutputName = "gtin";
 
     if (dbOutputName === collName) {
       console.log(
