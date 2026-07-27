@@ -386,6 +386,12 @@ class BaseProductDatabase {
 
     let objects = [];
     for (let doc of docs) {
+      delete doc.productImages
+      delete doc.downloading_image
+
+      // delete doc._id;
+      // delete doc.hash
+
       // if (Array.isArray(doc.images)) {
       //   doc.images = BaseProductDatabase.removeWebArchiveUrls(doc.images);
       // }
@@ -396,6 +402,7 @@ class BaseProductDatabase {
       // prod = this.parseStringifiedJSON(prod);
       // prod = this.normalizeWhitespace(prod);
       // prod = await cleaner.clean(prod, this.cleanerOptions);
+
       // prod = await sortKeysRecursive(prod);
 
       objects.push(prod);

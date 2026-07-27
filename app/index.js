@@ -9,9 +9,8 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
     : NormalProductDatabase;
   let sortByNewestFirst = false; // false is much faster than true
   let collNames = [
-    "products",
-    "ean"
-  ];
+    "final",
+  ]
 
   let dbOutputName;
 
@@ -24,17 +23,58 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
 
   let query = {};
   // query = { images: { $regex: "web\\.archive\\.org/web/\\d+/" } }
+  // query = {
+  //   $or: [
+  //     { "images.small":  { $regex: "web\\.archive\\.org/web/\\d+/" } },
+  //     { "images.medium": { $regex: "web\\.archive\\.org/web/\\d+/" } },
+  //     { "images.large":  { $regex: "web\\.archive\\.org/web/\\d+/" } },
+  //   ]
+  // }
+
+  // query = {
+  //   $or: [
+  //     { "images.small":  { $regex: "(^|[./])cloudfront\\.net([/?#]|$)" } },
+  //     { "images.medium": { $regex: "(^|[./])cloudfront\\.net([/?#]|$)" } },
+  //     { "images.large":  { $regex: "(^|[./])cloudfront\\.net([/?#]|$)" } },
+  //   ]
+  // }
+
+  // query = {
+  //   $or: [
+  //     { fat: { $exists: true } },
+  //     { compressed_gas: { $exists: true } },
+  //     { corrosive: { $exists: true } },
+  //     { energy: { $exists: true } },
+  //     { environmental_hazard: { $exists: true } },
+  //     { explosive: { $exists: true } },
+  //     { fat: { $exists: true } },
+  //     { flammable: { $exists: true } },
+  //     { harmful: { $exists: true } },
+  //     { health_hazard: { $exists: true } },
+  //     { oxidizing: { $exists: true } },
+  //     { subcategory: { $exists: true } },
+  //     { toxic: { $exists: true } },
+  //     { weight: { $exists: true } }
+  //   ]
+  // }
+
   // query = { images: { '$regex': '(^|[./])iposeninfra\\.com([/?#]|$)' } }
   // query = { images: { '$regex': '(^|[./])imgix\\.net([/?#]|$)' } }
   // query = { images: { '$regex': '(^|[./])sallinggroup\\.com([/?#]|$)' } }
-  // query = { last_syncronized: { $exists: true } }
 
-  query = { gtin: { $exists: true } }
+  // query = { gtin: { $exists: true } }
+  // query = { last_syncronized: { $exists: true } }
   // query = { productImages: { $exists: true } }
   // query = { barcodes: { $exists: false } }
-  // query = {
-  //   customerShelfLife: { $exists: true }
-  // }
+  // query = { searchHierarchy: { $exists: true } }
+  // query = { isOnOfferIn: { $exists: true } }
+  // query = { modified_at: { $exists: true } }
+  // query = { oldImages: { $exists: true } }
+  // query = { Brand: { $exists: true } }
+  // query = { subbrand: { $exists: true } }
+  // query = { downloading_image: {$exists: true} }
+  // query = { updatedAt: { $exists: true } }
+
 
   // query = { active_gtin: { $exists: true } }
   // query = { $or: [ { productImages: /0e3e52edb630500241349485ce23a7326adea6f7938a431001f8ee469c1c90bf/ }, { productImages: /2a75aa191052ba5d2d9d85cc3ef64e2d813be89ee0e9523fa248de4cc3b34184/ }, { productImages: /002d571d8fab306d1b6346569611b21e76c66df9ee88755738f85fac6c3dd017/ }, { productImages: /3fc31538836e40c74cba5c36f7a6a758963761ab59996caf002d08c2a1eb94bd/ }, { productImages: /6fc8639b747178e96bf79ff1c3d00e55e4fc5a4b3179f6c78c1549cd545e193e/ }, { productImages: /8a764d406c87d33c07da4d2d27506850d2af6bdd366fcebd7916bec29553bc68/ }, { productImages: /141f69c6a47666fec438cee0f9949f9c0abf02f79d25c9c81d343a56fca59168/ }, { productImages: /6550d08e1e2bc81387225b648d73b8cdac3f978da3503fc8285e68d80f6ef5f5/ }, { productImages: /52865eba1fff13fdead19451dba3580d4c9090e3a6d70029c1f97bb48c5a0ddb/ }, { productImages: /12339397dee0c9368b1d6e63ae84b5472bb0dd3fc92b6aef56dc2969b670dde5/ }, { productImages: /ac85a43b2157c8ec1e8ca346bbd1b4c234a459e00c54c19df5773cf4dba75b98/ }, { productImages: /d5a16dae492c65fa61e13886384d6a056602a38ff7f61fa982ed8a48fe80e203/ }, { productImages: /efe228eb9b3fa1393696a25c1c6998dae01320d7a4b5c4a306fc45ac5c149aa9/ }, { productImages: /ff3e8ab057e5990c57a4ee117cce193f6c4cd66485676cff9b2873726acbe529/ } ] }
@@ -44,7 +84,6 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
   // query = { productImages: "/salling/5f515dcd3844ea1996f3183bd28f05449fb86c96b64023b837da6453dcea8257.png" }
   // query = { $or: [ { productImages: /35c6e40fea546e5cff4cad28b0a29e3356e83bb67482377737048201d9c306a1/ }, { productImages: /4fe7173cad0d0895bfd70f3d361708473a619bbe089eecdc43b907bb8cef96b5/ }, { productImages: /67c320cb716a99c2d2281c47006a40557f9880955fa93861f6d8e37d84cbcc99/ }, { productImages: /9fea0a15e8636803cdcb3c0c0e787d0a44f0eede20b23c308371f7783e6f6d1b/ }, { productImages: /c9a886aeaf91486b9d69a3724155964e3ec4b3718818ef06ca9e83c108496495/ }, { productImages: /cddcb935284f902919623876262d5159f0f8935214235347581a05e5c16f88e5/ } ] }
   // query = { inStock: false }
-  // query = { updatedAt: { $exists: true } }
   // query = { "url": { "$regex": "1024" } }
   // query = { "$and": [ { "url": { "$regex": "imgSize=1024" } }, { "url": { "$regex": "/bilkaimg\\.php" } } ] }
   // query = { "$and": [ { "url": { "$regex": "imgSize=1024" } }, { "url": { "$regex": "/img\\.php" } } ] }
@@ -421,8 +460,8 @@ import { ProductDatabase as NormalProductDatabase } from "../db/normalMongodb.js
 
   for (let collName of collNames) {
     dbOutputName = collName + "v2";
-    // dbOutputName = collName + "-archive";
-    // dbOutputName = "gtin";
+    // dbOutputName = collName + "-sallinggroup";
+    // dbOutputName = "final-searchHierarchy-sallinggroup-last_syncronized";
 
     if (dbOutputName === collName) {
       console.log(
